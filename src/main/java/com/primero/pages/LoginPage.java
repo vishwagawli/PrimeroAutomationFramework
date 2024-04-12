@@ -20,7 +20,10 @@ public class LoginPage extends TestBase{
 	@FindBy(id="login-form-button")
 	WebElement loginBtn;
 	
+	public By loginBtn_By = By.id("login-form-button");
+	
 By Elmt = By.xpath("//h1[contains(text(), 'Home')]");
+By toastermsg_invalidcreds = By.className("MuiSnackbarContent-message");
 	
 	@FindBy(xpath="//h1[contains(text(), 'Home')]")
 	WebElement hometext;
@@ -48,5 +51,11 @@ public void validateElement()
 	public String validateText()
 	{
 		return hometext.getText();
+	}
+public void validateToaster_InvalodCreds()
+	
+	{
+		TestUtil tuobj = new TestUtil();
+		tuobj.waitForElementToAppear(toastermsg_invalidcreds);
 	}
 }

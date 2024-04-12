@@ -18,6 +18,9 @@ public class HomePage extends TestBase{
 	@FindBy(xpath="//*[@id=\"navigation.cases\"]/a")
 	WebElement caseshp;
 	
+	@FindBy(xpath="//*[contains(text(),'Log out')]")
+	WebElement logoutlink; 
+	
 	TestUtil tu = new TestUtil();
 	
 	public HomePage()
@@ -42,5 +45,12 @@ public class HomePage extends TestBase{
 		caseshp.click();
 		return new CasesPage();
 	}
+	
+	public void logoutApplication()
+	{
+		logoutlink.click();
+	}
+	
+	
 
 }
