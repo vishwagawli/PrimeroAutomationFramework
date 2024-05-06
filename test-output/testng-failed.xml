@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.primero.testcases.CasesPageTest">
+      <class name="com.primero.testcases.Cases_AddNewCasesPageTest">
         <methods>
           <include name="setUp"/>
           <include name="tearDown"/>
-          <include name="sendSearchBoxData"/>
+          <include name="addNewCase" invocation-numbers="0"/>
         </methods>
-      </class> <!-- com.primero.testcases.CasesPageTest -->
+      </class> <!-- com.primero.testcases.Cases_AddNewCasesPageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

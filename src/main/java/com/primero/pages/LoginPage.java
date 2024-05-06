@@ -23,7 +23,7 @@ public class LoginPage extends TestBase{
 	public By loginBtn_By = By.id("login-form-button");
 	
 By Elmt = By.xpath("//h1[contains(text(), 'Home')]");
-By toastermsg_invalidcreds = By.className("MuiSnackbarContent-message");
+By toastermsg_invalidcreds = By.className("MuiSnackbarContent-message"); 
 	
 	@FindBy(xpath="//h1[contains(text(), 'Home')]")
 	WebElement hometext;

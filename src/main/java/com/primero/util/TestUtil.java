@@ -19,6 +19,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -100,6 +101,8 @@ public class TestUtil extends TestBase {
 			if(name.equalsIgnoreCase(text))
 			{
 				System.out.println("True");
+				driver.findElement(By.xpath(beforxpath+i+afterxpath)).click();
+				
 				return true;
 			}
 					
@@ -111,6 +114,50 @@ public class TestUtil extends TestBase {
 	}
 	
 	
+	/*	
+	public static String[] getMonthYear(String monthYearVal) {
+		return monthYearVal.split(" ");
+		
+	}
+	
+	public void selectDate(String exDay, String exMonth, String exYear) throws InterruptedException
+	{
+		String monthYearVal = driver.findElement(By.xpath("/html/body/div[4]/div[3]/div/div[1]/div/div[2]/div[1]/div[1]/div/p")).getText();
+		System.out.println("Value is" +monthYearVal);
+		
+		while(!(getMonthYear(monthYearVal)[0].equalsIgnoreCase(exMonth) && getMonthYear(monthYearVal)[1].equalsIgnoreCase(exYear)))
+		{
+			driver.findElement(By.xpath("/html/body/div[4]/div[3]/div/div[1]/div/div[2]/div[1]/div[1]/button[2]")).click();
+			monthYearVal = driver.findElement(By.xpath("/html/body/div[4]/div[3]/div/div[1]/div/div[2]/div[1]/div[1]/div/p")).getText();
+		}
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//p[contains(text(),'"+exDay+"')]")).click();
+		//p[contains(text(),'17')]
+		
+	}
+	*/
+	
+	public static String[] getMonthYear(String monthYearVal) {
+		return monthYearVal.split(" ");
+		
+	}
+	
+	public void selectDate(String exDay, String exMonth, String exYear, String xpath_MonthYearLabel, String xpath_NextIconCalendor) throws InterruptedException
+	{
+		WebElement MY = driver.findElement(By.xpath(xpath_MonthYearLabel));
+		String monthYearVal = MY.getText();
+		System.out.println("Value is" +monthYearVal);
+		
+		while(!(getMonthYear(monthYearVal)[0].equalsIgnoreCase(exMonth) && getMonthYear(monthYearVal)[1].equalsIgnoreCase(exYear)))
+		{
+			driver.findElement(By.xpath(xpath_NextIconCalendor)).click();
+			monthYearVal = driver.findElement(By.xpath(xpath_MonthYearLabel)).getText();
+		}
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//p[contains(text(),'"+exDay+"')]")).click();
+		//p[contains(text(),'17')]
+		
+	}
 }
 
 
