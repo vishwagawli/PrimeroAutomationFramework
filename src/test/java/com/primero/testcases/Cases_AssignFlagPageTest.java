@@ -19,14 +19,14 @@ import com.primero.pages.HomePage;
 import com.primero.pages.LoginPage;
 import com.primero.util.TestUtil;
 
-public class CasesPageTest2 extends TestBase {
+public class Cases_AssignFlagPageTest extends TestBase {
 	LoginPage loginPage;
 	HomePage homePage;
 	CasesPage casespage;
 	
-	String sheetName = "SearchCases";
+	String sheetName = "AssignFlag";
 	
-	public CasesPageTest2() {
+	public Cases_AssignFlagPageTest() {
 		super();
 	}
 
@@ -39,24 +39,19 @@ public class CasesPageTest2 extends TestBase {
 		casespage = homePage.clickOnCasesLink();
 	}
 
+	@DataProvider
+	public Object[][] getTestDataFromExcel_SearchCases() throws EncryptedDocumentException, IOException
+	{
+		Object data[][]=TestUtil.getTestData(sheetName);
+		return data;
+	}
+
 	
-
-
-
-	
-	@Test(priority=1)
-	public void sendSearchBoxData() throws InterruptedException, IOException{
-		Thread.sleep(1000);
-		driver.findElement(By.id("buttons.new")).click();
-		Thread.sleep(1000);
-		driver.findElement(By.id("case.create_new_case")).click();
-		Thread.sleep(1000);
-		driver.findElement(By.id("assessment_due_date")).click();
-		TestUtil tu = new TestUtil();
-		//tu.selectDate("17", "Jul", "2024");
-		Thread.sleep(4000);
-		driver.findElement(By.xpath("/html/body/div[4]/div[3]/div/div[2]/button[3]/span")).click();
-		Thread.sleep(10000);
+	@Test(priority=1, dataProvider = "getTestDataFromExcel_SearchCases")
+	public void assignFlag(String text, String reason, String reasontounflag) throws InterruptedException, IOException{
+		TestUtil.getNameFromTable(text);
+		casespage.assignFlag(reason);
+		casespage.resolveFlag(reasontounflag);
 	}
 	
 	

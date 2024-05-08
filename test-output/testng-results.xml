@@ -1,64 +1,841 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+<testng-results ignored="0" total="12" passed="0" failed="12" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-05-06T16:09:03 IST" name="Default suite" finished-at="2024-05-06T16:11:01 IST" duration-ms="117081">
+  <suite started-at="2024-05-08T19:40:53 IST" name="Default suite" finished-at="2024-05-08T19:44:42 IST" duration-ms="229891">
     <groups>
     </groups>
-    <test started-at="2024-05-06T16:09:03 IST" name="Default test" finished-at="2024-05-06T16:11:01 IST" duration-ms="117081">
-      <class name="com.primero.testcases.Cases_AddNewCasesPageTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.primero.testcases.Cases_AddNewCasesPageTest@306e95ec]" started-at="2024-05-06T16:09:04 IST" name="setUp" finished-at="2024-05-06T16:09:09 IST" duration-ms="5829" status="PASS">
+    <test started-at="2024-05-08T19:40:53 IST" name="Default test" finished-at="2024-05-08T19:44:42 IST" duration-ms="229891">
+      <class name="com.primero.testcases.Cases_AssignFlagPageTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.primero.testcases.Cases_AssignFlagPageTest@58d75e99]" started-at="2024-05-08T19:40:53 IST" name="setUp" finished-at="2024-05-08T19:40:59 IST" duration-ms="5671" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="verifyCasesLabel()[pri:1, instance:com.primero.testcases.Cases_AddNewCasesPageTest@306e95ec]" started-at="2024-05-06T16:09:09 IST" name="verifyCasesLabel" finished-at="2024-05-06T16:09:10 IST" duration-ms="407" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyCasesLabel -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.primero.testcases.Cases_AddNewCasesPageTest@306e95ec]" started-at="2024-05-06T16:09:10 IST" name="tearDown" finished-at="2024-05-06T16:09:10 IST" duration-ms="92" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.primero.testcases.Cases_AddNewCasesPageTest@306e95ec]" started-at="2024-05-06T16:09:10 IST" name="setUp" finished-at="2024-05-06T16:09:14 IST" duration-ms="4038" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method signature="addNewCase(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:com.primero.testcases.Cases_AddNewCasesPageTest@306e95ec]" started-at="2024-05-06T16:09:14 IST" name="addNewCase" data-provider="getTestDataFromExcel_SearchCases" finished-at="2024-05-06T16:11:00 IST" duration-ms="106020" status="PASS">
+        <test-method signature="assignFlag(java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.primero.testcases.Cases_AssignFlagPageTest@58d75e99]" started-at="2024-05-08T19:40:59 IST" name="assignFlag" data-provider="getTestDataFromExcel_SearchCases" finished-at="2024-05-08T19:41:12 IST" duration-ms="13135" status="FAIL">
           <params>
             <param index="0">
               <value>
-                <![CDATA[Id_cpims_1]]>
+                <![CDATA[Janani Panchalingam]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[Janani]]>
+                <![CDATA[Test Flag 1]]>
               </value>
             </param>
             <param index="2">
               <value>
-                <![CDATA[Panchalingam]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[10-10-2024]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[33.0]]>
+                <![CDATA[UnflagReason]]>
               </value>
             </param>
           </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Toaster message doesnt matched. expected [Flag resolved] but found [Flag added successfully]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Toaster message doesnt matched. expected [Flag resolved] but found [Flag added successfully]
+at org.testng.Assert.fail(Assert.java:99)
+at org.testng.Assert.failNotEquals(Assert.java:1037)
+at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+at org.testng.Assert.assertEquals(Assert.java:122)
+at org.testng.Assert.assertEquals(Assert.java:629)
+at com.primero.pages.CasesPage.resolveFlag(CasesPage.java:342)
+at com.primero.testcases.Cases_AssignFlagPageTest.assignFlag(Cases_AssignFlagPageTest.java:54)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- addNewCase -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.primero.testcases.Cases_AddNewCasesPageTest@306e95ec]" started-at="2024-05-06T16:11:00 IST" name="tearDown" finished-at="2024-05-06T16:11:01 IST" duration-ms="86" status="PASS">
+        </test-method> <!-- assignFlag -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.primero.testcases.Cases_AssignFlagPageTest@58d75e99]" started-at="2024-05-08T19:41:12 IST" name="setUp" finished-at="2024-05-08T19:41:17 IST" duration-ms="5373" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- com.primero.testcases.Cases_AddNewCasesPageTest -->
+        </test-method> <!-- setUp -->
+        <test-method signature="assignFlag(java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.primero.testcases.Cases_AssignFlagPageTest@58d75e99]" started-at="2024-05-08T19:41:17 IST" name="assignFlag" data-provider="getTestDataFromExcel_SearchCases" finished-at="2024-05-08T19:41:31 IST" duration-ms="13246" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Janani Panchalingam]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Test Flag 2]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[UnflagReason]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Toaster message doesnt matched. expected [Flag resolved] but found [Flag added successfully]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Toaster message doesnt matched. expected [Flag resolved] but found [Flag added successfully]
+at org.testng.Assert.fail(Assert.java:99)
+at org.testng.Assert.failNotEquals(Assert.java:1037)
+at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+at org.testng.Assert.assertEquals(Assert.java:122)
+at org.testng.Assert.assertEquals(Assert.java:629)
+at com.primero.pages.CasesPage.resolveFlag(CasesPage.java:342)
+at com.primero.testcases.Cases_AssignFlagPageTest.assignFlag(Cases_AssignFlagPageTest.java:54)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- assignFlag -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.primero.testcases.Cases_AssignFlagPageTest@58d75e99]" started-at="2024-05-08T19:41:31 IST" name="setUp" finished-at="2024-05-08T19:41:36 IST" duration-ms="5244" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="assignFlag(java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.primero.testcases.Cases_AssignFlagPageTest@58d75e99]" started-at="2024-05-08T19:41:36 IST" name="assignFlag" data-provider="getTestDataFromExcel_SearchCases" finished-at="2024-05-08T19:41:49 IST" duration-ms="13325" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Janani Panchalingam]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Test Flag 3]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[UnflagReason]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Toaster message doesnt matched. expected [Flag resolved] but found [Flag added successfully]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Toaster message doesnt matched. expected [Flag resolved] but found [Flag added successfully]
+at org.testng.Assert.fail(Assert.java:99)
+at org.testng.Assert.failNotEquals(Assert.java:1037)
+at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+at org.testng.Assert.assertEquals(Assert.java:122)
+at org.testng.Assert.assertEquals(Assert.java:629)
+at com.primero.pages.CasesPage.resolveFlag(CasesPage.java:342)
+at com.primero.testcases.Cases_AssignFlagPageTest.assignFlag(Cases_AssignFlagPageTest.java:54)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- assignFlag -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.primero.testcases.Cases_AssignFlagPageTest@58d75e99]" started-at="2024-05-08T19:41:49 IST" name="setUp" finished-at="2024-05-08T19:41:54 IST" duration-ms="5370" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="assignFlag(java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.primero.testcases.Cases_AssignFlagPageTest@58d75e99]" started-at="2024-05-08T19:41:54 IST" name="assignFlag" data-provider="getTestDataFromExcel_SearchCases" finished-at="2024-05-08T19:42:08 IST" duration-ms="13950" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Janani Panchalingam]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Test Flag 4]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[UnflagReason]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Toaster message doesnt matched. expected [Flag resolved] but found [Flag added successfully]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Toaster message doesnt matched. expected [Flag resolved] but found [Flag added successfully]
+at org.testng.Assert.fail(Assert.java:99)
+at org.testng.Assert.failNotEquals(Assert.java:1037)
+at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+at org.testng.Assert.assertEquals(Assert.java:122)
+at org.testng.Assert.assertEquals(Assert.java:629)
+at com.primero.pages.CasesPage.resolveFlag(CasesPage.java:342)
+at com.primero.testcases.Cases_AssignFlagPageTest.assignFlag(Cases_AssignFlagPageTest.java:54)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- assignFlag -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.primero.testcases.Cases_AssignFlagPageTest@58d75e99]" started-at="2024-05-08T19:42:08 IST" name="setUp" finished-at="2024-05-08T19:42:14 IST" duration-ms="5369" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="assignFlag(java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.primero.testcases.Cases_AssignFlagPageTest@58d75e99]" started-at="2024-05-08T19:42:14 IST" name="assignFlag" data-provider="getTestDataFromExcel_SearchCases" finished-at="2024-05-08T19:42:27 IST" duration-ms="13247" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Janani Panchalingam]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Test Flag 5]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[UnflagReason]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Toaster message doesnt matched. expected [Flag resolved] but found [Flag added successfully]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Toaster message doesnt matched. expected [Flag resolved] but found [Flag added successfully]
+at org.testng.Assert.fail(Assert.java:99)
+at org.testng.Assert.failNotEquals(Assert.java:1037)
+at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+at org.testng.Assert.assertEquals(Assert.java:122)
+at org.testng.Assert.assertEquals(Assert.java:629)
+at com.primero.pages.CasesPage.resolveFlag(CasesPage.java:342)
+at com.primero.testcases.Cases_AssignFlagPageTest.assignFlag(Cases_AssignFlagPageTest.java:54)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- assignFlag -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.primero.testcases.Cases_AssignFlagPageTest@58d75e99]" started-at="2024-05-08T19:42:27 IST" name="setUp" finished-at="2024-05-08T19:42:33 IST" duration-ms="5564" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="assignFlag(java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.primero.testcases.Cases_AssignFlagPageTest@58d75e99]" started-at="2024-05-08T19:42:33 IST" name="assignFlag" data-provider="getTestDataFromExcel_SearchCases" finished-at="2024-05-08T19:42:46 IST" duration-ms="13851" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Janani Panchalingam]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Test Flag 6]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[UnflagReason]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Toaster message doesnt matched. expected [Flag resolved] but found [Flag added successfully]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Toaster message doesnt matched. expected [Flag resolved] but found [Flag added successfully]
+at org.testng.Assert.fail(Assert.java:99)
+at org.testng.Assert.failNotEquals(Assert.java:1037)
+at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+at org.testng.Assert.assertEquals(Assert.java:122)
+at org.testng.Assert.assertEquals(Assert.java:629)
+at com.primero.pages.CasesPage.resolveFlag(CasesPage.java:342)
+at com.primero.testcases.Cases_AssignFlagPageTest.assignFlag(Cases_AssignFlagPageTest.java:54)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- assignFlag -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.primero.testcases.Cases_AssignFlagPageTest@58d75e99]" started-at="2024-05-08T19:42:46 IST" name="setUp" finished-at="2024-05-08T19:42:52 IST" duration-ms="5336" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="assignFlag(java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.primero.testcases.Cases_AssignFlagPageTest@58d75e99]" started-at="2024-05-08T19:42:52 IST" name="assignFlag" data-provider="getTestDataFromExcel_SearchCases" finished-at="2024-05-08T19:43:06 IST" duration-ms="13734" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Janani Panchalingam]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Test Flag 7]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[UnflagReason]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Toaster message doesnt matched. expected [Flag resolved] but found [Flag added successfully]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Toaster message doesnt matched. expected [Flag resolved] but found [Flag added successfully]
+at org.testng.Assert.fail(Assert.java:99)
+at org.testng.Assert.failNotEquals(Assert.java:1037)
+at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+at org.testng.Assert.assertEquals(Assert.java:122)
+at org.testng.Assert.assertEquals(Assert.java:629)
+at com.primero.pages.CasesPage.resolveFlag(CasesPage.java:342)
+at com.primero.testcases.Cases_AssignFlagPageTest.assignFlag(Cases_AssignFlagPageTest.java:54)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- assignFlag -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.primero.testcases.Cases_AssignFlagPageTest@58d75e99]" started-at="2024-05-08T19:43:06 IST" name="setUp" finished-at="2024-05-08T19:43:11 IST" duration-ms="5605" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="assignFlag(java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.primero.testcases.Cases_AssignFlagPageTest@58d75e99]" started-at="2024-05-08T19:43:11 IST" name="assignFlag" data-provider="getTestDataFromExcel_SearchCases" finished-at="2024-05-08T19:43:25 IST" duration-ms="13669" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Janani Panchalingam]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Test Flag 8]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[UnflagReason]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Toaster message doesnt matched. expected [Flag resolved] but found [Flag added successfully]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Toaster message doesnt matched. expected [Flag resolved] but found [Flag added successfully]
+at org.testng.Assert.fail(Assert.java:99)
+at org.testng.Assert.failNotEquals(Assert.java:1037)
+at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+at org.testng.Assert.assertEquals(Assert.java:122)
+at org.testng.Assert.assertEquals(Assert.java:629)
+at com.primero.pages.CasesPage.resolveFlag(CasesPage.java:342)
+at com.primero.testcases.Cases_AssignFlagPageTest.assignFlag(Cases_AssignFlagPageTest.java:54)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- assignFlag -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.primero.testcases.Cases_AssignFlagPageTest@58d75e99]" started-at="2024-05-08T19:43:25 IST" name="setUp" finished-at="2024-05-08T19:43:31 IST" duration-ms="5749" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="assignFlag(java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.primero.testcases.Cases_AssignFlagPageTest@58d75e99]" started-at="2024-05-08T19:43:31 IST" name="assignFlag" data-provider="getTestDataFromExcel_SearchCases" finished-at="2024-05-08T19:43:44 IST" duration-ms="13686" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Janani Panchalingam]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Test Flag 9]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[UnflagReason]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Toaster message doesnt matched. expected [Flag resolved] but found [Flag added successfully]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Toaster message doesnt matched. expected [Flag resolved] but found [Flag added successfully]
+at org.testng.Assert.fail(Assert.java:99)
+at org.testng.Assert.failNotEquals(Assert.java:1037)
+at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+at org.testng.Assert.assertEquals(Assert.java:122)
+at org.testng.Assert.assertEquals(Assert.java:629)
+at com.primero.pages.CasesPage.resolveFlag(CasesPage.java:342)
+at com.primero.testcases.Cases_AssignFlagPageTest.assignFlag(Cases_AssignFlagPageTest.java:54)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- assignFlag -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.primero.testcases.Cases_AssignFlagPageTest@58d75e99]" started-at="2024-05-08T19:43:44 IST" name="setUp" finished-at="2024-05-08T19:43:50 IST" duration-ms="5761" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="assignFlag(java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.primero.testcases.Cases_AssignFlagPageTest@58d75e99]" started-at="2024-05-08T19:43:50 IST" name="assignFlag" data-provider="getTestDataFromExcel_SearchCases" finished-at="2024-05-08T19:44:03 IST" duration-ms="13475" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Janani Panchalingam]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Test Flag 10]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[UnflagReason]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Toaster message doesnt matched. expected [Flag resolved] but found [Flag added successfully]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Toaster message doesnt matched. expected [Flag resolved] but found [Flag added successfully]
+at org.testng.Assert.fail(Assert.java:99)
+at org.testng.Assert.failNotEquals(Assert.java:1037)
+at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+at org.testng.Assert.assertEquals(Assert.java:122)
+at org.testng.Assert.assertEquals(Assert.java:629)
+at com.primero.pages.CasesPage.resolveFlag(CasesPage.java:342)
+at com.primero.testcases.Cases_AssignFlagPageTest.assignFlag(Cases_AssignFlagPageTest.java:54)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- assignFlag -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.primero.testcases.Cases_AssignFlagPageTest@58d75e99]" started-at="2024-05-08T19:44:03 IST" name="setUp" finished-at="2024-05-08T19:44:09 IST" duration-ms="5638" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="assignFlag(java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.primero.testcases.Cases_AssignFlagPageTest@58d75e99]" started-at="2024-05-08T19:44:09 IST" name="assignFlag" data-provider="getTestDataFromExcel_SearchCases" finished-at="2024-05-08T19:44:23 IST" duration-ms="13788" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Janani Panchalingam]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Test Flag 11]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[UnflagReason]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Toaster message doesnt matched. expected [Flag resolved] but found [Flag added successfully]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Toaster message doesnt matched. expected [Flag resolved] but found [Flag added successfully]
+at org.testng.Assert.fail(Assert.java:99)
+at org.testng.Assert.failNotEquals(Assert.java:1037)
+at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+at org.testng.Assert.assertEquals(Assert.java:122)
+at org.testng.Assert.assertEquals(Assert.java:629)
+at com.primero.pages.CasesPage.resolveFlag(CasesPage.java:342)
+at com.primero.testcases.Cases_AssignFlagPageTest.assignFlag(Cases_AssignFlagPageTest.java:54)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- assignFlag -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.primero.testcases.Cases_AssignFlagPageTest@58d75e99]" started-at="2024-05-08T19:44:23 IST" name="setUp" finished-at="2024-05-08T19:44:29 IST" duration-ms="5772" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="assignFlag(java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.primero.testcases.Cases_AssignFlagPageTest@58d75e99]" started-at="2024-05-08T19:44:29 IST" name="assignFlag" data-provider="getTestDataFromExcel_SearchCases" finished-at="2024-05-08T19:44:42 IST" duration-ms="13798" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Janani Panchalingam]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Test Flag 12]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[UnflagReason]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Toaster message doesnt matched. expected [Flag resolved] but found [Flag added successfully]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Toaster message doesnt matched. expected [Flag resolved] but found [Flag added successfully]
+at org.testng.Assert.fail(Assert.java:99)
+at org.testng.Assert.failNotEquals(Assert.java:1037)
+at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+at org.testng.Assert.assertEquals(Assert.java:122)
+at org.testng.Assert.assertEquals(Assert.java:629)
+at com.primero.pages.CasesPage.resolveFlag(CasesPage.java:342)
+at com.primero.testcases.Cases_AssignFlagPageTest.assignFlag(Cases_AssignFlagPageTest.java:54)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- assignFlag -->
+      </class> <!-- com.primero.testcases.Cases_AssignFlagPageTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

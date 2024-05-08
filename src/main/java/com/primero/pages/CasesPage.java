@@ -3,6 +3,7 @@ package com.primero.pages;
 
 import java.util.List;
 
+import org.apache.commons.collections4.bag.SynchronizedSortedBag;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -21,6 +22,8 @@ public class CasesPage extends TestBase{
 	WebElement searchbox;
 	
 	By Elmnt = By.xpath("//*[@id=\"root\"]/div/main/div/div/header/div/div[1]/h1");
+	
+	By flaglist = By.xpath("//*[@id=\"simple-tabpanel-0\"]/div/ul/div[1]/div[1]/li[1]");
 	
 	@FindBy(id="buttons.new")
 	WebElement newBtn;
@@ -119,6 +122,23 @@ public class CasesPage extends TestBase{
 	
 	@FindBy(id="case_id_display")
 	WebElement getcaseid;
+	
+	@FindBy(id="record-flags")
+	WebElement Btn_assignFlag;
+	
+	@FindBy(id="flag-tab-1")
+	WebElement tab_addFlag;
+	
+	@FindBy(id="message")
+	WebElement txt_flagreason;
+	
+	@FindBy(id="submit-form")
+	WebElement Btn_resolve;
+	
+	@FindBy(id="unflag_message")
+	WebElement reasonunflag;
+	
+	
 	
 	public CasesPage() {
 		PageFactory.initElements(driver, this);
@@ -273,5 +293,58 @@ public class CasesPage extends TestBase{
 		
 		
 	}
+
+	public void assignFlag(String reason) throws InterruptedException
+	{
+		Btn_assignFlag.click();
+		//for(int i=1;i<=5;i++)
+		//{
+		Thread.sleep(2000);
+		tab_addFlag.click();
+		Thread.sleep(2000);
+		txt_flagreason.sendKeys(reason);
+		Thread.sleep(2000);
+		addServiceBtn.click();
+		String flag_toastermsg= toastermsg.getText();
+		System.out.println(flag_toastermsg);
+		tu.waitForElementToAppear(toastermsg_case);
+		Assert.assertEquals(flag_toastermsg, "Flag added successfully","Toaster message doesnt matched.");
+		Thread.sleep(2000);
+		tu.waitForElementToAppear(flaglist);
+		System.out.println(driver.findElement(By.xpath("//*[@id=\"simple-tabpanel-0\"]/div/ul/div[1]/div[1]/li[1]/div/span/div/div[1]/div[1]/span")).getText());
+		
+		//List<WebElement> resolve_btns = driver.findElements(By.id("submit-form"));
+		
+	//	for(int i = 1; i< resolve_btns.size();i++)
+		//{
+			
+			//System.out.println(driver.findElement(By.xpath("//*[@id=\"simple-tabpanel-0\"]/div/ul/div[1]/div[" +i+ "]/li[1]/div/span/div/div[1]/div[1]/span")).getText());
+		//}
+		
+	//	}
+	}
 	
+	public void resolveFlag(String reasontounflag) throws InterruptedException
+	{
+		List<WebElement> resolve_btns = driver.findElements(By.id("submit-form"));
+		
+		for(int i = 0; i< resolve_btns.size();i++)
+		{
+			
+			//System.out.println(driver.findElement(By.xpath("//*[@id=\"simple-tabpanel-0\"]/div/ul/div[1]/div[" +i+ "]/li[1]/div/span/div/div[1]/div[1]/span")).getText());
+			driver.findElement(By.xpath("//*[@id=\"simple-tabpanel-0\"]/div/ul/div[1]/div[1]/li[1]/div/span/div/div[1]/div[1]/span")).getText();
+			driver.findElement(By.id("submit-form")).click();
+			reasonunflag.sendKeys(reasontounflag);
+			addServiceBtn.click();
+			String flag_toastermsg= toastermsg.getText();
+			System.out.println(flag_toastermsg);
+			tu.waitForElementToAppear(toastermsg_case);
+			Assert.assertEquals(flag_toastermsg, "Flag resolved","Toaster message doesnt matched.");
+			
+			
+		}
+		
+		
+		
+	}
 }
