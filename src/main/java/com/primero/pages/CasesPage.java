@@ -138,7 +138,13 @@ public class CasesPage extends TestBase{
 	@FindBy(id="unflag_message")
 	WebElement reasonunflag;
 	
+	@FindBy(xpath="//*[@id=\"long-menu\"]/div[3]/ul/div/li[5]")
+	WebElement reopenBtn;
 	
+	@FindBy(xpath="//*[@id=\"long-menu\"]/div[3]/ul/div/li[6]")
+	WebElement disable_Btn;
+	
+	//@FindBy(xpath = "//*[@id=\"long-menu\"]/div[3]/ul/div/li[6]")
 	
 	public CasesPage() {
 		PageFactory.initElements(driver, this);
@@ -160,6 +166,58 @@ public class CasesPage extends TestBase{
 		menubar.click();
 		Thread.sleep(1000);
 		closebtn.click();
+		Thread.sleep(1000);
+		addServiceBtn.click();
+		String flag_toastermsg= toastermsg.getText();
+		System.out.println(flag_toastermsg);
+		tu.waitForElementToAppear(toastermsg_case);
+		
+	}
+	public void reopenCase() throws InterruptedException
+	{
+		Thread.sleep(1000);
+		menubar.click();
+		Thread.sleep(1000);
+		reopenBtn.click();
+		Thread.sleep(1000);
+		addServiceBtn.click();
+		String flag_toastermsg= toastermsg.getText();
+		System.out.println(flag_toastermsg);
+		tu.waitForElementToAppear(toastermsg_case);
+		Assert.assertEquals(flag_toastermsg, "Successfully reopened case","Toaster message doesnt matched.");
+		
+		
+	}
+	
+	public void disableCase() throws InterruptedException
+	{
+		Thread.sleep(1000);
+		menubar.click();
+		Thread.sleep(1000);
+		disable_Btn.click();
+		Thread.sleep(1000);
+		addServiceBtn.click();
+		String flag_toastermsg= toastermsg.getText();
+		System.out.println(flag_toastermsg);
+		tu.waitForElementToAppear(toastermsg_case);
+		Assert.assertEquals(flag_toastermsg, "Successfully disabled case","Toaster message doesnt matched.");
+		
+		
+	}
+	
+	public void enableCase() throws InterruptedException
+	{
+		Thread.sleep(1000);
+		menubar.click();
+		Thread.sleep(1000);
+		disable_Btn.click();
+		Thread.sleep(1000);
+		addServiceBtn.click();
+		String flag_toastermsg= toastermsg.getText();
+		System.out.println(flag_toastermsg);
+		tu.waitForElementToAppear(toastermsg_case);
+		Assert.assertEquals(flag_toastermsg, "Successfully enabled case","Toaster message doesnt matched.");
+		
 		
 	}
 	public void createNewCase(String cpmisId, String fname, String lname, String assDuedate, String age) throws InterruptedException

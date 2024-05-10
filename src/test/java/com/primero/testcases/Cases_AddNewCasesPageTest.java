@@ -77,6 +77,12 @@ public class Cases_AddNewCasesPageTest extends TestBase {
 	Thread.sleep(30000);
 	
 	casespage.closeCase();
+	Thread.sleep(5000);
+	casespage.reopenCase();
+	Thread.sleep(5000);
+	casespage.disableCase();
+	Thread.sleep(5000);
+	casespage.enableCase();
 	
 	}
 
@@ -85,7 +91,7 @@ public class Cases_AddNewCasesPageTest extends TestBase {
 	
 	
 	
-	@AfterMethod
+	//@AfterMethod
 	public void tearDown(){
 		driver.quit();
 	}
