@@ -1,56 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-05-10T17:11:39 IST" name="Default suite" finished-at="2024-05-10T17:14:25 IST" duration-ms="166563">
+  <suite started-at="2024-05-31T12:29:37 IST" name="Default suite" finished-at="2024-05-31T12:30:02 IST" duration-ms="25047">
     <groups>
     </groups>
-    <test started-at="2024-05-10T17:11:39 IST" name="Default test" finished-at="2024-05-10T17:14:25 IST" duration-ms="166563">
-      <class name="com.primero.testcases.Cases_AddNewCasesPageTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.primero.testcases.Cases_AddNewCasesPageTest@74751b3]" started-at="2024-05-10T17:11:39 IST" name="setUp" finished-at="2024-05-10T17:11:50 IST" duration-ms="10961" status="PASS">
+    <test started-at="2024-05-31T12:29:37 IST" name="Default test" finished-at="2024-05-31T12:30:02 IST" duration-ms="25047">
+      <class name="com.primero.testcases.Cases_AssignCase">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.primero.testcases.Cases_AssignCase@4f2b503c]" started-at="2024-05-31T12:29:38 IST" name="setUp" finished-at="2024-05-31T12:29:44 IST" duration-ms="6313" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="verifyCasesLabel()[pri:1, instance:com.primero.testcases.Cases_AddNewCasesPageTest@74751b3]" started-at="2024-05-10T17:11:50 IST" name="verifyCasesLabel" finished-at="2024-05-10T17:11:50 IST" duration-ms="294" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyCasesLabel -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.primero.testcases.Cases_AddNewCasesPageTest@74751b3]" started-at="2024-05-10T17:11:51 IST" name="setUp" finished-at="2024-05-10T17:12:02 IST" duration-ms="10716" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method signature="addNewCase(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:com.primero.testcases.Cases_AddNewCasesPageTest@74751b3]" started-at="2024-05-10T17:12:02 IST" name="addNewCase" data-provider="getTestDataFromExcel_SearchCases" finished-at="2024-05-10T17:14:25 IST" duration-ms="143913" status="PASS">
+        <test-method signature="internalReferCase(java.lang.String)[pri:1, instance:com.primero.testcases.Cases_AssignCase@4f2b503c]" started-at="2024-05-31T12:29:44 IST" name="internalReferCase" data-provider="getTestDataFromExcel_SearchCases" finished-at="2024-05-31T12:30:02 IST" duration-ms="18224" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[Id_cpims_1]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Janani]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Panchalingam]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[10-10-2024]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[33.0]]>
+                <![CDATA[Janani Panchalingam]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- addNewCase -->
-      </class> <!-- com.primero.testcases.Cases_AddNewCasesPageTest -->
+        </test-method> <!-- internalReferCase -->
+      </class> <!-- com.primero.testcases.Cases_AssignCase -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

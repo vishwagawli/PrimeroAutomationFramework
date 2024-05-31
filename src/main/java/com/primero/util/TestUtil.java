@@ -2,12 +2,30 @@ package com.primero.util;
 
 
 
+import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.net.URLConnection;
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.imageio.ImageIO;
+
+import java.awt.image.RenderedImage;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.PDPageTree;
+import org.apache.pdfbox.pdmodel.PDResources;
+import org.apache.pdfbox.pdmodel.graphics.PDXObject;
+import org.apache.pdfbox.pdmodel.graphics.form.PDFormXObject;
+import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
+import org.apache.pdfbox.cos.COSName;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.text.PDFTextStripper;
 import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.openxml4j.opc.OPCPackage;
@@ -35,6 +53,10 @@ public class TestUtil extends TestBase {
 	
 	public static String TESTDATA_SHEET_PATH = System.getProperty("user.dir")+ "//src//main//java//com//"
 									+"//primero//testdata//Primero.xlsx";
+	
+	//public static String url = downloadpath+ "/a812fc7d-d8fc-418f-a97b-d76371df41db.pdf";
+	
+	static String url = "file:///home/vishwambargawli/eclipse-workspace/Primero/PDF/a812fc7d-d8fc-418f-a97b-d76371df41db.pdf";
 
 	static Workbook book;
 	static Sheet sheet;
@@ -158,6 +180,76 @@ public class TestUtil extends TestBase {
 		//p[contains(text(),'17')]
 		
 	}
+	
+	public static void pdfReaderTest() throws Exception {
+		
+		//URL pdfUrl = new URL(url);
+		java.net.URL pdfUrl = new java.net.URL(url);
+		InputStream ip = pdfUrl.openStream();
+		BufferedInputStream bf = new BufferedInputStream(ip);
+		PDDocument pdDocument = PDDocument.load(bf);
+		int pageCount = pdDocument.getNumberOfPages();
+		System.out.println("pdf page: " + pageCount);
+		
+		System.out.println("========================pdf content===============");
+		PDFTextStripper pdfStiper = new PDFTextStripper();
+	    String pdfText = pdfStiper.getText(pdDocument);
+		System.out.println(pdfText);
+		
+		int imagecount = getImagesFromPDF(pdDocument).size();
+		System.out.println("Total Images "+imagecount);
+		
+		PDFBoxExtractImages(pdDocument);
+		
+		
+		 
+		
+	}
+	
+	public int getPDFImagesCount(PDDocument document) throws IOException {
+		return getImagesFromPDF(document).size();
+	}
+	
+	public static List<RenderedImage> getImagesFromPDF(PDDocument document) throws IOException {
+		List<RenderedImage> images = new ArrayList<>();
+		for (PDPage page : document.getPages()) {
+			images.addAll(getImagesFromResources(page.getResources()));
+		}
+
+		return images;
+	}
+	
+	private static List<RenderedImage> getImagesFromResources(PDResources resources) throws IOException {
+		List<RenderedImage> images = new ArrayList<>();
+
+		for (COSName xObjectName : resources.getXObjectNames()) {
+			PDXObject xObject = resources.getXObject(xObjectName);
+
+			if (xObject instanceof PDFormXObject) {
+				images.addAll(getImagesFromResources(((PDFormXObject) xObject).getResources()));
+			} else if (xObject instanceof PDImageXObject) {
+				images.add(((PDImageXObject) xObject).getImage());
+			}
+		}
+		
+		return images;
+	}
+	
+	public static void PDFBoxExtractImages(PDDocument document) throws Exception {
+	    PDPageTree list = document.getPages();
+	    for (PDPage page : list) {
+	        PDResources pdResources = page.getResources();
+	        for (COSName c : pdResources.getXObjectNames()) {
+	            PDXObject o = pdResources.getXObject(c);
+	            if (o instanceof org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject) {
+	                File file = new File("./pdfimages/" + System.nanoTime() + ".png");
+	                ImageIO.write(((org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject)o).getImage(), "png", file);
+	            }
+	        }
+	    }
+	}
+	
+
 }
 
 

@@ -3,11 +3,13 @@ package com.primero.base;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 
@@ -18,7 +20,7 @@ public class TestBase {
 	
 	public static WebDriver driver;
 	public static Properties prop;
-	
+	public static String downloadpath = System.getProperty("user.dir")+ "/PDF";
 	
 	
 	public TestBase(){
@@ -37,9 +39,14 @@ public class TestBase {
 	public static void initialization(){
 		String browserName = prop.getProperty("browser");
 		
+		ChromeOptions options = new ChromeOptions();
+		HashMap<String, Object> prefs = new HashMap<String, Object>();
+		prefs.put("download.default_directory", downloadpath);
+		options.setExperimentalOption("prefs", prefs);
+		
 		if(browserName.equals("chrome")){
 			//System.setProperty("webdriver.chrome.driver", "/Users/naveenkhunteta/Downloads/chromedriver");	
-			driver = new ChromeDriver(); 
+			driver = new ChromeDriver(options); 
 		}
 		else if(browserName.equals("FF")){
 			//System.setProperty("webdriver.gecko.driver", "/Users/naveenkhunteta/Documents/SeleniumServer/geckodriver");	
