@@ -24,7 +24,7 @@ public class Cases_ReferCaseRemotely extends TestBase {
 	HomePage homePage;
 	CasesPage casespage;
 	
-	String sheetName = "ReferCase";
+	String sheetName = "RemoteReferCase";
 	
 	public Cases_ReferCaseRemotely() {
 		super();
@@ -48,11 +48,11 @@ public class Cases_ReferCaseRemotely extends TestBase {
 
 	
 	@Test(priority=1, dataProvider = "getTestDataFromExcel_SearchCases")
-	public void remoteReferCase(String text) throws Exception{
+	public void remoteReferCase(String text,String ref,String service, String referagency, String location, String recipent, String notes) throws Exception{
 	
 		
 		TestUtil.getNameFromTable(text);
-		casespage.remoteReferCase();
+		casespage.remoteReferCase(ref,service,referagency,location,recipent,notes);
 		TestUtil.pdfReaderTest();
 		casespage.revokeReferCase();
 		

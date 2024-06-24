@@ -167,9 +167,18 @@ public class CasesPage extends TestBase{
 	@FindBy(xpath="//*[@id=\"long-menu\"]/div[3]/ul/div/li[1]")
 	WebElement menu_refercase;
 	
+	@FindBy(xpath="//li[contains(text(), 'Transfer Case')]")
+	WebElement menu_transfercase;
+	
 	@FindBy(xpath="//*[@id=\"remote\"]/div/label/span[1]/span/input")
 	WebElement chk_refertoremotsystem;
 	
+	@FindBy(xpath="//*[@id=\"remoteSystem\"]/div/label/span[1]/span/input")
+	WebElement chk_transferremotesystem;
+	
+	@FindBy(xpath="//*[@id=\"consent_individual_transfer\"]/div/label/span[1]/span/input")
+	WebElement chk_transferconsent;
+		
 	@FindBy(id="role")
 	WebElement dd_role_refercase;
 	
@@ -178,6 +187,9 @@ public class CasesPage extends TestBase{
 	
 	@FindBy(id="service")
 	WebElement refer_ServiceDD;
+	
+	@FindBy(id="agency")
+	WebElement transfer_agency;
 	
 	@FindBy(id="transitioned_to_agency")
 	WebElement refer_agency_txt;
@@ -200,16 +212,22 @@ public class CasesPage extends TestBase{
 	@FindBy(xpath="//*[@id=\"referral-record_information\"]/div")
 	WebElement refraltab;
 	
-	@FindBy(xpath="/html/body/div[1]/div/main/div/div/div[2]/form/div[1]/div[3]/div[1]/div/div[1]/div[1]/div/div[2]/div[2]/span/button/span")
+	@FindBy(xpath="//div[@class='MuiAccordionSummary-content']//*[@id='more-actions']")
 	WebElement menubar_ref;
+	
+	@FindBy(xpath="//*[@id=\"more-actions\"]")
+	WebElement moreaction_transfercase;
 	
 	@FindBy(xpath="//*[@id=\"long-menu\"]/div[3]/ul/li")
 	WebElement revokeBtn;
 	
-	@FindBy(xpath="//*[@id=\"13dad6f2-f742-4f11-b9df-23b0ca4c394d\"]/div[1]/div/div[2]/div/div/span")
+	@FindBy(xpath="//*[@id=\"long-menu\"]/div[3]/ul/li[1]")
+	WebElement acceptBtn;
+	
+	@FindBy(xpath="//*[contains(text(),'Revoked')]")
 	WebElement revokedLabel;
 	
-	@FindBy(xpath="//*[@id=\"5affdc10-a39a-43e9-bf8b-7fd88fbef7f6\"]/div[1]/div/div[2]/div[1]/div/span")
+	@FindBy(xpath="//*[contains(text(),'Accepted')]")
 	WebElement acceptLbl;
 	
 	@FindBy(xpath="//*[@id=\"long-menu\"]/div[3]/ul/li[2]")
@@ -218,7 +236,7 @@ public class CasesPage extends TestBase{
 	@FindBy(id="rejected_reason")
 	WebElement rejectReason;
 	
-	@FindBy(xpath="//*[@id=\"19234018-43b0-491b-8def-bfa629fec320\"]/div[1]/div/div[2]/div/div/span")
+	@FindBy(xpath="//*[contains(text(),'Rejected')]")
 	WebElement rejectLbl;
 	
 	@FindBy(xpath="//*[@id=\"long-menu\"]/div[3]/ul/div/li[2]")
@@ -230,11 +248,117 @@ public class CasesPage extends TestBase{
 	@FindBy(xpath="//*[@id=\"transfers_assignments-record_information\"]/div/span")
 	WebElement assigntransfermenutab;
 	
+	@FindBy(xpath="//*[@id=\"transfers_assignments-record_information\"]/div/span")
+	WebElement menutransfer;
+	
+	@FindBy(xpath="//*[@id=\"e4f2a782-0365-455f-ab44-10929b61c17c\"]/div[1]/div/div[2]/div/div/span")
+	WebElement revokedLabel_Transfer;
+	
+	@FindBy(xpath="//li[contains(text(),'Request Approval')]")
+	WebElement menu_reqApproval;
+	
+	@FindBy(xpath="//li[contains(text(),'Approvals')]")
+	WebElement menu_Approval;
+	
+	@FindBy(xpath="//*[@id=\"outlined-select-approval-native\"]")
+	WebElement ReqApp_DD;
+	
+	@FindBy(xpath="//*[@id=\"menu-\"]/div[3]/ul/li[2]")
+	WebElement casplan_dd_reqApproval;
+	
+	@FindBy(xpath="//*[@id=\"menu-\"]/div[3]/ul/li[3]")
+	WebElement closure_dd_reqApproval;
+	
+	@FindBy(xpath="//*[@id=\"menu-\"]/div[3]/ul/li[4]")
+	WebElement actionplan_dd_reqApproval;
+	
+	@FindBy(xpath="//*[@id=\"menu-\"]/div[3]/ul/li[4]")
+	WebElement caseclosure_dd_reqApproval;
+	
+	@FindBy(id="outlined-multiline-static")
+	WebElement commentsAppeoval;
+	
+	@FindBy(id="cp_case_plan-case_plan")
+	WebElement menu_caseplan;
+	
+	@FindBy(xpath="//*[@id=\"approval_status_case_plan\"]")
+	WebElement approvalstatus;
 	
 	public CasesPage() {
 		PageFactory.initElements(driver, this);
 	}
-
+	
+	public void approvals(String comment) throws InterruptedException
+	{
+		menubar.click();
+		menu_Approval.click();
+		commentsAppeoval.sendKeys(comment);
+		addServiceBtn.click();
+		tuobj.waitForElementToAppear(toastermsg_case);
+		String txt_toastermsg= toastermsg.getText();
+		System.out.println(txt_toastermsg);
+		Assert.assertEquals(txt_toastermsg, "Case Plan - Approved","Toaster message doesnt matched.");
+		menu_caseplan.click();
+		Thread.sleep(4000);
+		String txt_approvalstatus=approvalstatus.getAttribute("value");
+		System.out.println(txt_approvalstatus);
+		Assert.assertEquals(txt_approvalstatus, "Approved","Toaster message doesnt matched.");
+		
+		
+	}
+	public void requestApproval_caseplan() throws InterruptedException
+	{
+		String typeValue=getcaseid.getAttribute("value");
+		System.out.println("Value of type attribute: "+typeValue);
+		
+		menubar.click();
+		menu_reqApproval.click();
+		Thread.sleep(2000);
+		ReqApp_DD.click();
+		casplan_dd_reqApproval.click();
+		addServiceBtn.click();
+		tuobj.waitForElementToAppear(toastermsg_case);
+		String txt_toastermsg= toastermsg.getText();
+		System.out.println(txt_toastermsg);
+		Assert.assertEquals(txt_toastermsg, "Approval requested for Case Plan form.","Toaster message doesnt matched.");
+		//Approval requested for Case Plan form.
+		
+		
+	}
+	public void requestApproval_caseclosure() throws InterruptedException
+	{
+		String typeValue=getcaseid.getAttribute("value");
+		System.out.println("Value of type attribute: "+typeValue);
+		
+		menubar.click();
+		menu_reqApproval.click();
+		Thread.sleep(2000);
+		ReqApp_DD.click();
+		caseclosure_dd_reqApproval.click();
+		addServiceBtn.click();
+		tuobj.waitForElementToAppear(toastermsg_case);
+		String txt_toastermsg= toastermsg.getText();
+		System.out.println(txt_toastermsg);
+		Assert.assertEquals(txt_toastermsg, "Approval requested for Case closure form.","Toaster message doesnt matched.");
+		//Approval requested for Case Plan form.
+		
+		
+	}
+	public void revokeTransferCase() throws InterruptedException
+	{
+		
+		recInfotab.click();
+		assigntransfermenutab.click();
+		Thread.sleep(2000);
+		menubar_ref.click();
+		Thread.sleep(2000);
+		revokeBtn.click();
+		addServiceBtn.click();
+		tuobj.waitForElementToAppear(toastermsg_case);
+		String revoklbl = revokedLabel_Transfer.getText();
+		Assert.assertEquals(revoklbl, "REVOKED","Toaster message doesnt matched.");
+				
+	}
 	public void revokeReferCase() throws InterruptedException
 	{
 		
@@ -271,7 +395,7 @@ public class CasesPage extends TestBase{
 		Assert.assertEquals(AceptLbl, "ACCEPTED","Toaster message doesnt matched.");
 	}
 	
-	public void rejectReferCase() throws InterruptedException
+	public void rejectReferCase(String reason) throws InterruptedException
 	{
 		recInfotab.click();
 		refraltab.click();
@@ -279,7 +403,7 @@ public class CasesPage extends TestBase{
 		menubar_ref.click();
 		Thread.sleep(2000);
 		rejectBtn.click();
-		rejectReason.sendKeys("Reason For Rejection");
+		rejectReason.sendKeys(reason);
 		addServiceBtn.click();
 		tuobj.waitForElementToAppear(toastermsg_case);
 		
@@ -290,6 +414,61 @@ public class CasesPage extends TestBase{
 		String rejectLbl1 = rejectLbl.getText();
 		System.out.println(rejectLbl1);
 		Assert.assertEquals(rejectLbl1, "REJECTED","Toaster message doesnt matched.");
+	}
+	
+	public void acceptTransferCase() throws InterruptedException
+	{
+		String typeValue=getcaseid.getAttribute("value");
+		System.out.println("Value of type attribute: "+typeValue);
+		
+		recInfotab.click();
+		menutransfer.click();
+		Thread.sleep(2000);
+		menubar_ref.click();
+		//moreaction_transfercase.click();
+		Thread.sleep(2000);
+		acceptBtn.click();
+		
+		addServiceBtn.click();
+		tuobj.waitForElementToAppear(toastermsg_case);
+		
+		String txt_toastermsg_acceptref= toastermsg.getText();
+		System.out.println(txt_toastermsg_acceptref);
+		Assert.assertEquals(txt_toastermsg_acceptref, "Case transfer successfully accepted.","Toaster message doesnt matched.");
+		
+	//	String AceptLbl = acceptLbl.getText();
+		//System.out.println(AceptLbl);
+		//Assert.assertEquals(AceptLbl, "ACCEPTED","Toaster message doesnt matched.");
+	}
+	
+	public void rejectTransferCase(String comment) throws InterruptedException
+	{
+		String typeValue=getcaseid.getAttribute("value");
+		System.out.println("Value of type attribute: "+typeValue);
+		
+		recInfotab.click();
+		menutransfer.click();
+		Thread.sleep(2000);
+		menubar_ref.click();
+		//moreaction_transfercase.click();
+		Thread.sleep(2000);
+		rejectBtn.click();
+		
+		rejectReason.sendKeys(comment);
+		addServiceBtn.click();
+		tuobj.waitForElementToAppear(toastermsg_case);
+		//Case ebc57f1 transfer rejected.
+		
+		tuobj.waitForElementToAppear(toastermsg_case);
+		String txt_toastermsg_assessment= toastermsg.getText();
+		System.out.println(txt_toastermsg_assessment);
+		
+		Assert.assertEquals(txt_toastermsg_assessment, "Case " + typeValue + " transfer rejected.","Toaster message doesnt matched.");
+		
+	/*	String rejectLbl1 = rejectLbl.getText();
+		System.out.println(rejectLbl1);
+		Assert.assertEquals(rejectLbl1, "REJECTED","Toaster message doesnt matched.");
+		*/
 	}
 	
 	public void internalReferalcase() throws InterruptedException
@@ -331,7 +510,7 @@ public class CasesPage extends TestBase{
 		tu.waitForElementToAppear(assigncasedd);
 	}
 	
-	public void assignCase() throws InterruptedException
+	public void assignCase(String assignee) throws InterruptedException
 	{
 		String typeValue=getcaseid.getAttribute("value");
 		System.out.println("Value of type attribute: "+typeValue);
@@ -340,7 +519,7 @@ public class CasesPage extends TestBase{
 		assigncasemenu.click();
 		
 		reciepDD.clear();
-		reciepDD.sendKeys("cp_vishu_worker_1");
+		reciepDD.sendKeys(assignee);
 		driver.findElement(By.cssSelector("#transitioned_to-popup > li:nth-child(1)")).click();
 		
 		txt_NoteAssignMenu.sendKeys("Note");
@@ -356,7 +535,7 @@ public class CasesPage extends TestBase{
 		
 	}
 	
-	public void remoteReferCase() throws InterruptedException
+	public void remoteReferCase(String ref,String service, String referagency, String location, String recipent, String notes) throws InterruptedException
 	{
 		String typeValue=getcaseid.getAttribute("value");
 		System.out.println("Value of type attribute: "+typeValue);
@@ -372,17 +551,17 @@ public class CasesPage extends TestBase{
 		menu_refercase.click();
 		chk_refertoremotsystem.click();
 		dd_role_refercase.clear();
-		dd_role_refercase.sendKeys("Ref");
+		dd_role_refercase.sendKeys(ref);
 		driver.findElement(By.cssSelector("#role-popup > li:nth-child(1)")).click();
 		
 		refer_ServiceDD.clear();
-		refer_ServiceDD.sendKeys("S");
+		refer_ServiceDD.sendKeys(service);
 		driver.findElement(By.cssSelector("#service-popup > li:nth-child(1)")).click();
 		
-		refer_agency_txt.sendKeys("Data");
-		refer_loc_txt.sendKeys("Location");
-		refer_reciepent_txt.sendKeys("Reciepent");
-		txt_Notes_refer.sendKeys("Notes");
+		refer_agency_txt.sendKeys(referagency);
+		refer_loc_txt.sendKeys(location);
+		refer_reciepent_txt.sendKeys(recipent);
+		txt_Notes_refer.sendKeys(notes);
 		refer_Btn.click();
 		
 		tuobj.waitForElementToAppear(toastermsg_case);
@@ -401,6 +580,45 @@ public class CasesPage extends TestBase{
 		
 		
 	}
+	
+	public void transferCase(String agency, String recipt, String Notes) throws InterruptedException
+	{
+		String typeValue=getcaseid.getAttribute("value");
+		System.out.println("Value of type attribute: "+typeValue);
+		
+		/*Edit_btn.click();
+		tab_dataConfidentiality.click();
+		Thread.sleep(1000);
+		chk_serviceconsent.click();
+		radio_Consent.click();
+		chk_disclosuresharing.click();
+		save_btn.click();
+		Thread.sleep(5000);*/
+		menubar.click();
+		menu_transfercase.click();
+		chk_transferremotesystem.click();
+		chk_transferconsent.click();
+		
+		transfer_agency.clear();
+		transfer_agency.sendKeys(agency);
+		driver.findElement(By.cssSelector("#agency-popup > li:nth-child(1)")).click();
+		
+		reciepDD.clear();
+		reciepDD.sendKeys(recipt);
+		driver.findElement(By.cssSelector("#transitioned_to-popup > li:nth-child(1)")).click();
+		
+		txt_Notes_refer.sendKeys(Notes);
+		Thread.sleep(4000);
+		refer_Btn.click();
+		
+		tuobj.waitForElementToAppear(toastermsg_case);
+		String txt_toastermsg_assessment= toastermsg.getText();
+		System.out.println(txt_toastermsg_assessment);
+		
+		Assert.assertEquals(txt_toastermsg_assessment, "Successfully transferred","Toaster message doesnt matched.");
+		
+	}
+	
 	public void verifyCasesLabelPresent()
 	{
 		tu.waitForElementToAppear(Elmnt);

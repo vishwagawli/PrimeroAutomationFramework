@@ -24,7 +24,7 @@ public class Cases_AssignCase extends TestBase {
 	HomePage homePage;
 	CasesPage casespage;
 	
-	String sheetName = "ReferCase";
+	String sheetName = "AssignCase";
 	
 	public Cases_AssignCase() {
 		super();
@@ -48,11 +48,11 @@ public class Cases_AssignCase extends TestBase {
 
 	
 	@Test(priority=1, dataProvider = "getTestDataFromExcel_SearchCases")
-	public void internalReferCase(String text) throws Exception{
+	public void assignCase(String text,String assignee) throws Exception{
 	
 		
 		TestUtil.getNameFromTable(text);
-		casespage.assignCase();
+		casespage.assignCase(assignee);
 		
 		homePage.logoutApplication();
 		

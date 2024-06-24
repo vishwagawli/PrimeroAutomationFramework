@@ -24,7 +24,7 @@ public class Cases_InternalReferCase extends TestBase {
 	HomePage homePage;
 	CasesPage casespage;
 	
-	String sheetName = "ReferCase";
+	String sheetName = "RejectReferCase";
 	
 	public Cases_InternalReferCase() {
 		super();
@@ -48,7 +48,7 @@ public class Cases_InternalReferCase extends TestBase {
 
 	
 	@Test(priority=1, dataProvider = "getTestDataFromExcel_SearchCases")
-	public void internalReferCase(String text) throws Exception{
+	public void internalReferCase(String text,String reason) throws Exception{
 	
 		
 		TestUtil.getNameFromTable(text);
@@ -63,9 +63,9 @@ public class Cases_InternalReferCase extends TestBase {
 		casespage = homePage.clickOnCasesLink();
 		
 		TestUtil.getNameFromTable(text);
-		//casespage.acceptReferCase();
+		casespage.acceptReferCase();
 		
-		casespage.rejectReferCase();
+	//	casespage.rejectReferCase(reason);
 		
 	}
 	
