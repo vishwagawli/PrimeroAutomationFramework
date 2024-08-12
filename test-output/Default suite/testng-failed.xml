@@ -3,12 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.primero.testcases.Cases_ReferCaseRemotely">
+      <class name="com.primero.testcases_incident.CP_Enable_Incident">
         <methods>
           <include name="setUp"/>
-          <include name="remoteReferCase" invocation-numbers="0"/>
+          <include name="assignFlag" invocation-numbers="0"/>
         </methods>
-      </class> <!-- com.primero.testcases.Cases_ReferCaseRemotely -->
+      </class> <!-- com.primero.testcases_incident.CP_Enable_Incident -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

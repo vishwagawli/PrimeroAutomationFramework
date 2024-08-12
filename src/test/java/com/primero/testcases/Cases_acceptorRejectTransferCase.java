@@ -63,8 +63,8 @@ public class Cases_acceptorRejectTransferCase extends TestBase {
 		
 		TestUtil.getNameFromTable(text);
 		
-	//	casespage.rejectTransferCase(comment);
-		casespage.acceptTransferCase();
+		casespage.rejectTransferCase(comment);
+	//	casespage.acceptTransferCase();
 		
 	}
 	

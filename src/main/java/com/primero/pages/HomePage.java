@@ -18,6 +18,12 @@ public class HomePage extends TestBase{
 	@FindBy(xpath="//*[@id=\"navigation.cases\"]/a")
 	WebElement caseshp;
 	
+	@FindBy(xpath="//*[contains(text(),'Tracing Req')]")
+	WebElement tracingreqhp;
+	
+	@FindBy(xpath="//*[contains(text(),'Incident')]")
+	WebElement incidenthp;
+	
 	@FindBy(xpath="//*[contains(text(),'Log out')]")
 	WebElement logoutlink; 
 	
@@ -44,6 +50,16 @@ public class HomePage extends TestBase{
 	public CasesPage clickOnCasesLink(){
 		caseshp.click();
 		return new CasesPage();
+	}
+	
+	public TracingRequestPage clickOnTracingReqLink(){
+		tracingreqhp.click();
+		return new TracingRequestPage();
+	}
+	
+	public IncidentPage clickOnIncidentLink(){
+		incidenthp.click();
+		return new IncidentPage();
 	}
 	
 	public void logoutApplication()
