@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Primero Application Automation Suite]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="com.primero.ExtentReportListener.ExtentReporterNG"/>
+  </listeners>
   <test thread-count="5" name="Primero Application Test Cases(failed)">
     <classes>
       <class name="com.primero.testcases.CasesPageTest">
         <methods>
           <include name="setUp"/>
           <include name="tearDown"/>
-          <include name="verifyCasesLabel"/>
-          <include name="sendSearchBoxData"/>
+          <include name="sendSearchBoxData" invocation-numbers="0"/>
         </methods>
       </class> <!-- com.primero.testcases.CasesPageTest -->
     </classes>

@@ -24,6 +24,9 @@ public class HomePage extends TestBase{
 	@FindBy(xpath="//*[contains(text(),'Incident')]")
 	WebElement incidenthp;
 	
+	@FindBy(xpath="//*[contains(text(),'Setting')]")
+	WebElement settinghp;
+	
 	@FindBy(xpath="//*[contains(text(),'Log out')]")
 	WebElement logoutlink; 
 	
@@ -60,6 +63,11 @@ public class HomePage extends TestBase{
 	public IncidentPage clickOnIncidentLink(){
 		incidenthp.click();
 		return new IncidentPage();
+	}
+	
+	public SettingPage clickOnSettingLink(){
+		settinghp.click();
+		return new SettingPage();
 	}
 	
 	public void logoutApplication()

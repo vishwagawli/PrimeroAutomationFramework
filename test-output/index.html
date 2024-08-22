@@ -104,7 +104,7 @@
                     <div class="method-list-content failed suite-Default_suite">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.primero.testcases_incident.CP_Enable_Incident" class="method navigator-link" hash-for-method="assignFlag(51abd58)">assignFlag(51abd58)</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.primero.testases_Setting.Add_User" class="method navigator-link" hash-for-method="createUser(Vishwambar Gawli, vishugawli, Test@123, Test@123, CP Case Worker, Primero CP, Vishu@trigyn.com, UNIC...)">createUser(Vishwambar Gawli, vishugawli, Test@123, Test@123, CP Case Worker, Primero CP, Vishu@trigyn.com, UNIC...)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Default_suite -->
@@ -122,23 +122,29 @@
           <div class="suite-Default_suite-class-failed">
             <div class="main-panel-header rounded-window-top">
               <img src="failed.png"/>
-              <span class="class-name">com.primero.testcases_incident.CP_Enable_Incident</span>
+              <span class="class-name">com.primero.testases_Setting.Add_User</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="assignFlag(51abd58)">
-                  </a> <!-- assignFlag(51abd58) -->
-                  <span class="method-name">assignFlag</span>
-                  <span class="parameters">(51abd58)</span>
-                  <div class="stack-trace">java.lang.AssertionError: Toaster message doesnt matched. expected [Successfully enabled incident] but found [Successfully enabled incidents.]
-	at org.testng.Assert.fail(Assert.java:99)
-	at org.testng.Assert.failNotEquals(Assert.java:1037)
-	at org.testng.Assert.assertEqualsImpl(Assert.java:140)
-	at org.testng.Assert.assertEquals(Assert.java:122)
-	at org.testng.Assert.assertEquals(Assert.java:629)
-	at com.primero.pages.IncidentPage.enableIncident(IncidentPage.java:275)
-	at com.primero.testcases_incident.CP_Enable_Incident.assignFlag(CP_Enable_Incident.java:58)
+                  <a name="createUser(Vishwambar Gawli, vishugawli, Test@123, Test@123, CP Case Worker, Primero CP, Vishu@trigyn.com, UNIC...)">
+                  </a> <!-- createUser(Vishwambar Gawli, vishugawli, Test@123, Test@123, CP Case Worker, Primero CP, Vishu@trigyn.com, UNIC...) -->
+                  <span class="method-name">createUser</span>
+                  <span class="parameters">(Vishwambar Gawli, vishugawli, Test@123, Test@123, CP Case Worker, Primero CP, Vishu@trigyn.com, UNICEF, Country)</span>
+                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: Unable to find element with locator By.id: full_name
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: &apos;4.18.1&apos;, revision: &apos;b1d3319b48&apos;
+System info: os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;5.15.0-117-generic&apos;, java.version: &apos;17.0.10&apos;
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:168)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:356)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:350)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy13.sendKeys(Unknown Source)
+	at com.primero.pages.SettingPage.createNewUser(SettingPage.java:94)
+	at com.primero.testases_Setting.Add_User.createUser(Add_User.java:57)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -176,7 +182,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">/tmp/testng-eclipse--1825316865/testng-customsuite.xml</span>
+            <span class="header-content">/tmp/testng-eclipse-1080035959/testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -185,7 +191,7 @@
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;com.primero.testcases_incident.CP_Enable_Incident&quot;/&gt;
+      &lt;class name=&quot;com.primero.testases_Setting.Add_User&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -227,14 +233,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'assignFlag')
-data.setCell(0, 2, 'com.primero.testcases_incident.CP_Enable_Incident')
-data.setCell(0, 3, 6660);
+data.setCell(0, 1, 'createUser')
+data.setCell(0, 2, 'com.primero.testases_Setting.Add_User')
+data.setCell(0, 3, 13591);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 6 seconds</span>
+              <span class="suite-total-time">Total running time: 13 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -260,7 +266,7 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">com.primero.testcases_incident.CP_Enable_Incident</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">com.primero.testases_Setting.Add_User</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
                 <span class="method-start">0 ms</span>
@@ -268,8 +274,8 @@ return data;
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">assignFlag(51abd58)</span>
-                <span class="method-start">5033 ms</span>
+                <span class="method-name">createUser(Vishwambar Gawli, vishugawli, Test@123, Test@123, CP Case Worker, Primero CP, Vishu@trigyn.com, UNIC...)</span>
+                <span class="method-start">4751 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

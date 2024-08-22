@@ -3,12 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.primero.testcases_incident.CP_Enable_Incident">
+      <class name="com.primero.testases_Setting.Add_User">
         <methods>
           <include name="setUp"/>
-          <include name="assignFlag" invocation-numbers="0"/>
+          <include name="createUser" invocation-numbers="0"/>
         </methods>
-      </class> <!-- com.primero.testcases_incident.CP_Enable_Incident -->
+      </class> <!-- com.primero.testases_Setting.Add_User -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
