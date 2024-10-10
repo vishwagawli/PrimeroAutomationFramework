@@ -27,7 +27,7 @@ public class LoginPageTest extends TestBase{
 	@Test
 	public void loginTest()
 	{
-		homepage = loginpage.loginApplication(prop.getProperty("username"), prop.getProperty("password"));
+		homepage = loginpage.loginApplication(prop.getProperty("nosolruser"), prop.getProperty("password"));
 	}
 	
 	@AfterMethod

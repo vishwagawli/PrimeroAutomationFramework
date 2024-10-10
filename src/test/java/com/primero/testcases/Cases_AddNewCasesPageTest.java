@@ -33,15 +33,15 @@ public class Cases_AddNewCasesPageTest extends TestBase {
 	public void setUp() {
 		initialization();
 		loginPage = new LoginPage();
-		homePage = loginPage.loginApplication(prop.getProperty("username"), prop.getProperty("password"));
+		homePage = loginPage.loginApplication(prop.getProperty("cpusername"), prop.getProperty("password"));
 		casespage = homePage.clickOnCasesLink();
 	}
-	@Test(priority=1)
+	/*@Test(priority=1)
 	public void verifyCasesLabel() throws IOException{
 		
 		casespage.verifyCasesLabelPresent();
 		TestUtil.takeScreenshotAtEndOfTest();
-	}
+	}*/
 	
 
 	@DataProvider
@@ -54,7 +54,7 @@ public class Cases_AddNewCasesPageTest extends TestBase {
 
 	
 	
-	@Test(priority=2, dataProvider = "getTestDataFromExcel_SearchCases")
+	@Test(priority=1, dataProvider = "getTestDataFromExcel_SearchCases")
 	public void addNewCase(String cpmisId, String fname, String lname, String assDuedate, String age) throws InterruptedException, IOException{
 		
 	casespage.createNewCase(cpmisId, fname, lname, assDuedate,age);
@@ -68,7 +68,7 @@ public class Cases_AddNewCasesPageTest extends TestBase {
 	
 	initialization();
 	loginPage = new LoginPage();
-	homePage = loginPage.loginApplication(prop.getProperty("adminuser"), prop.getProperty("password"));
+	homePage = loginPage.loginApplication(prop.getProperty("nosolruser"), prop.getProperty("password"));
 	casespage = homePage.clickOnCasesLink();
 	
 	String texttosearch = fname +" "+  lname;

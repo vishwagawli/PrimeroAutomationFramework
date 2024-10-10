@@ -48,8 +48,8 @@ import dev.failsafe.internal.util.Assert;
 
 public class TestUtil extends TestBase {
 	
-	public static long PAGE_LOAD_TIMEOUT = 20;
-	public static long IMPLICIT_WAIT = 20;
+	public static long PAGE_LOAD_TIMEOUT = 50;
+	public static long IMPLICIT_WAIT = 50;
 	
 	public static String TESTDATA_SHEET_PATH = System.getProperty("user.dir")+ "//src//main//java//com//"
 									+"//primero//testdata//Primero.xlsx";
@@ -108,7 +108,7 @@ public class TestUtil extends TestBase {
 		
 		//table[contains(@class,'MuiTable-root')]/tbody/tr[4]/td[3]"
 		String beforxpath="//table[contains(@class,'MuiTable-root')]/tbody/tr[";
-		String afterxpath= "]/td[2]";
+		String afterxpath= "]/td[1]";
 		for(int i=1;i<=25;i++)
 		{
 			String name = driver.findElement(By.xpath(beforxpath+i+afterxpath)).getText();

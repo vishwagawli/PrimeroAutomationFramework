@@ -33,6 +33,9 @@ public class CasesPage extends TestBase{
 	@FindBy(id="case.create_new_case")
 	WebElement createnewcaseBtn;
 	
+	@FindBy(id="case.skip_and_create")
+	WebElement createnewcaseBtn1;
+	
 	@FindBy(id="cpims_id")
 	WebElement txt_cpimsid;
 	
@@ -48,7 +51,7 @@ public class CasesPage extends TestBase{
 	@FindBy(id="assessment_due_date")
 	WebElement assDueDate;
 	
-	@FindBy(xpath="/html/body/div[4]/div[3]/div/div[2]/button[3]/span")
+	@FindBy(name="assessment_due_date")
 	WebElement assDueDateOk_Btn;
 	
 	@FindBy(xpath="/html/body/div[5]/div[3]/div/div[2]/button[3]")
@@ -64,10 +67,13 @@ public class CasesPage extends TestBase{
 	@FindBy(id="buttons.save_and_return")
 	WebElement save_btn;
 	
-	@FindBy(className="MuiSnackbarContent-message")
+	//@FindBy(className="MuiSnackbarContent-message")notistack-snackbar
+	//WebElement toastermsg;
+	@FindBy(id="notistack-snackbar")
 	WebElement toastermsg;
 	
-	public By toastermsg_case = By.className("MuiSnackbarContent-message"); 
+	//public By toastermsg_case = By.className("MuiSnackbarContent-message");  
+	public By toastermsg_case = By.id("notistack-snackbar");
 	public By toastermsg_pdf = By.xpath("(//span[@id=\"client-snackbar\"])[2]");
 	
 	public By assigncasedd = By.xpath("//div[contains(text(), 'Assign')]");
@@ -75,10 +81,10 @@ public class CasesPage extends TestBase{
 	@FindBy(xpath="(//span[@id=\"client-snackbar\"])[2]")
 	WebElement toastermsg_pdf_Webel;
 	
-	@FindBy(xpath="//*[@id=\"assessment-assessment\"]/div/span")
+	@FindBy(xpath="//div[contains(text(),'Assessment')]")
 	WebElement Assesment_Tab;
 	
-	@FindBy(id="assessment_requested_on")
+	@FindBy(name="assessment_requested_on")
 	WebElement Assesment_reqOnDate;
 	
 	@FindBy(id="buttons.edit")
@@ -111,7 +117,7 @@ public class CasesPage extends TestBase{
 	@FindBy(id="service_implemented_day_time")
 	WebElement implementedonDate_DD;
 	
-	@FindBy(xpath="//*[@id=\"more-actions\"]/span")
+	@FindBy(xpath="//*[@id=\"more-actions\"]")
 	WebElement menubar;
 	
 	@FindBy(xpath="//*[@id=\"long-menu\"]/div[3]/ul/div/li[5]")
@@ -242,7 +248,7 @@ public class CasesPage extends TestBase{
 	@FindBy(xpath="//*[@id=\"long-menu\"]/div[3]/ul/div/li[2]")
 	WebElement assigncasemenu;
 	
-	@FindBy(xpath="/html/body/div[4]/div[3]/div/div[2]/form/div[2]/div/div/textarea")
+	@FindBy(name="notes")
 	WebElement txt_NoteAssignMenu;
 	
 	@FindBy(xpath="//*[@id=\"transfers_assignments-record_information\"]/div/span")
@@ -482,8 +488,8 @@ public class CasesPage extends TestBase{
 		//chk_refertoremotsystem.click();
 		
 		refer_ServiceDD.clear();
-		refer_ServiceDD.sendKeys("Safehouse");
-		driver.findElement(By.cssSelector("#service-popup > li:nth-child(1)")).click();
+		refer_ServiceDD.sendKeys("Secur");
+		driver.findElement(By.cssSelector("#service-listbox > li:nth-child(1)")).click();
 		
 		reciepDD.clear();
 		reciepDD.sendKeys("Vish");
@@ -520,7 +526,7 @@ public class CasesPage extends TestBase{
 		
 		reciepDD.clear();
 		reciepDD.sendKeys(assignee);
-		driver.findElement(By.cssSelector("#transitioned_to-popup > li:nth-child(1)")).click();
+		driver.findElement(By.cssSelector("#transitioned_to-listbox > li:nth-child(1)")).click();
 		
 		txt_NoteAssignMenu.sendKeys("Note");
 		
@@ -695,20 +701,21 @@ public class CasesPage extends TestBase{
 		Thread.sleep(1000);
 		newBtn.click();
 		Thread.sleep(1000);
-		createnewcaseBtn.click();
+		createnewcaseBtn1.click();
+		Thread.sleep(3000);
 		txt_cpimsid.sendKeys(cpmisId);
 		txt_fname.sendKeys(fname);
 		txt_lname.sendKeys(lname);
-		assDueDate.click();
+		//assDueDate.click();
 		TestUtil tu = new TestUtil();
-		tu.selectDate("17", "Jul", "2024", monthyearvaluestring, NextIconCalendor);
-		assDueDateOk_Btn.click();
+	//	tu.selectDate("17", "Jul", "2024", monthyearvaluestring, NextIconCalendor);
+		//assDueDateOk_Btn.click();
 		txt_age.sendKeys(age);
 		
 		
 		sex.clear();
 		sex.sendKeys("Male");
-		driver.findElement(By.cssSelector("#sex-popup > li:nth-child(1)")).click();
+		driver.findElement(By.cssSelector("#sex-listbox > li:nth-child(1)")).click();
 		
 		
 		
@@ -853,6 +860,7 @@ public class CasesPage extends TestBase{
 	
 	public void resolveFlag(String reasontounflag) throws InterruptedException
 	{
+		Thread.sleep(8000);
 		List<WebElement> resolve_btns = driver.findElements(By.id("submit-form"));
 		
 		for(int i = 0; i< resolve_btns.size();i++)

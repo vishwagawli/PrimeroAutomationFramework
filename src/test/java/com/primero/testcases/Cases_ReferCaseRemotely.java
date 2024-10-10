@@ -35,7 +35,7 @@ public class Cases_ReferCaseRemotely extends TestBase {
 	public void setUp() {
 		initialization();
 		loginPage = new LoginPage();
-		homePage = loginPage.loginApplication(prop.getProperty("username"), prop.getProperty("password"));
+		homePage = loginPage.loginApplication(prop.getProperty("cpusername"), prop.getProperty("password"));
 		casespage = homePage.clickOnCasesLink();
 	}
 

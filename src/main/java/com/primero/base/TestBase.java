@@ -16,6 +16,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import com.primero.util.TestUtil;
 import com.primero.util.WebEventListener;
 
+import io.opencensus.common.Duration;
+
 public class TestBase {
 	
 	public static WebDriver driver;
@@ -59,6 +61,7 @@ public class TestBase {
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().pageLoadTimeout(TestUtil.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
 		driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
+		// driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 		
 		driver.get(prop.getProperty("url"));
 	}
