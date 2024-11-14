@@ -24,7 +24,7 @@ public class LogoutPageTest extends TestBase {
 	{
 		initialization();
 		loginpage = new LoginPage();
-		homePage=loginpage.loginApplication(prop.getProperty("username"), prop.getProperty("password"));
+		homePage=loginpage.loginApplication(prop.getProperty("cpusernameqa"), prop.getProperty("password"));
 
 	}
 	

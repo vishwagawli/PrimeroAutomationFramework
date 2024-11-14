@@ -51,7 +51,7 @@ public class Disabled_Role extends TestBase {
 
 	
 	@Test(priority=1)
-	public void disabledUser() throws Exception{
+	public void disabledRole() throws Exception{
 		//TestUtil.getNameFromTable(text);
 		settingpage.goToRoleTab();
 		settingpage.getDisabledRole();;

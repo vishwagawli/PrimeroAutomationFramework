@@ -56,7 +56,7 @@ public class Cases_AddNewCasesPageTest extends TestBase {
 	
 	@Test(priority=1, dataProvider = "getTestDataFromExcel_SearchCases")
 	public void addNewCase(String cpmisId, String fname, String lname, String assDuedate, String age) throws InterruptedException, IOException{
-		
+	//	casespage.makeOffline();
 	casespage.createNewCase(cpmisId, fname, lname, assDuedate,age);
 	//Assert.assertEquals(casespage.txt_toastermsg, "Case record successfully created.","Text not matched");   	
 	TestUtil.takeScreenshotAtEndOfTest();
@@ -68,13 +68,13 @@ public class Cases_AddNewCasesPageTest extends TestBase {
 	
 	initialization();
 	loginPage = new LoginPage();
-	homePage = loginPage.loginApplication(prop.getProperty("nosolruser"), prop.getProperty("password"));
+	homePage = loginPage.loginApplication(prop.getProperty("adminuser"), prop.getProperty("password"));
 	casespage = homePage.clickOnCasesLink();
 	
 	String texttosearch = fname +" "+  lname;
-	System.out.println(texttosearch);
-	TestUtil.getNameFromTable(texttosearch);
-	Thread.sleep(30000);
+	System.out.println(texttosearch); // Make td value 3
+	TestUtil.getNameFromTable(texttosearch);  // Make td value 3
+	Thread.sleep(10000);
 	
 	casespage.closeCase();
 	Thread.sleep(5000);
@@ -85,13 +85,8 @@ public class Cases_AddNewCasesPageTest extends TestBase {
 	casespage.enableCase();
 	
 	}
-
 	
-	
-	
-	
-	
-	//@AfterMethod
+	@AfterMethod
 	public void tearDown(){
 		driver.quit();
 	}

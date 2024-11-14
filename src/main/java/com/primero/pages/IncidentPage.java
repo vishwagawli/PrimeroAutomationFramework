@@ -57,15 +57,17 @@ public class IncidentPage extends TestBase{
 	@FindBy(id="short_id")
 	WebElement getcaseid;
 	
-	public By toastermsg_case = By.className("MuiSnackbarContent-message"); 
+	public By toastermsg_case = By.id("notistack-snackbar"); 
 	
-	@FindBy(className="MuiSnackbarContent-message")
+	//@FindBy(className="MuiSnackbarContent-message")
+	//WebElement toastermsg;
+	@FindBy(id="notistack-snackbar")
 	WebElement toastermsg;
 	
 	@FindBy(id="buttons.save_and_return")
 	WebElement saveBtn;
 	
-	@FindBy(xpath="//*[contains(text(),'Perpetrator')]")
+	@FindBy(id="cp_offender_details-perpetrator_details")
 	WebElement Perpetrator_link;
 	
 	@FindBy(id="cp_incident_perpetrator_nationality")
@@ -92,7 +94,7 @@ public class IncidentPage extends TestBase{
 	@FindBy(id="message")
 	WebElement txt_flagreason;
 	
-	@FindBy(xpath="//*[@id=\"more-actions\"]/span")
+	@FindBy(xpath="//*[@id=\"more-actions\"]")
 	WebElement menubar;
 	
 	@FindBy(xpath="//*[contains(text(),'Disable')]")
@@ -131,34 +133,34 @@ public class IncidentPage extends TestBase{
 			
 	public void createNewIncident(String violence, String area, String location, String timeofday, String violencetype) throws InterruptedException
 		{
-		Thread.sleep(1000);
+		Thread.sleep(8000);
 		newBtn.click();
 		Thread.sleep(1000);
 		
 		
 		cp_identification_violence.clear();
 		cp_identification_violence.sendKeys(violence);
-		driver.findElement(By.cssSelector("#cp_incident_identification_violence-popup > li:nth-child(1)")).click();
+		driver.findElement(By.cssSelector("#cp_incident_identification_violence-listbox > li:nth-child(1)")).click();
 		
-		incident_date.click();
-		tu.selectDate("17", "Nov", "2025", monthyearvaluestring, NextIconCalendor);
-		assDueDateOk_Btn.click();
+		//incident_date.click();
+		//tu.selectDate("17", "Nov", "2025", monthyearvaluestring, NextIconCalendor);
+		//assDueDateOk_Btn.click();
 		
 		cp_incident_area.clear();
 		cp_incident_area.sendKeys(area);
-		driver.findElement(By.cssSelector("#cp_incident_location_type-popup > li:nth-child(1)")).click();
+		driver.findElement(By.cssSelector("#cp_incident_location_type-listbox > li:nth-child(1)")).click();
 		
 		incident_location.clear();
 		incident_location.sendKeys(location);
-		driver.findElement(By.cssSelector("#incident_location-popup > li:nth-child(1)")).click();
+		driver.findElement(By.cssSelector("#incident_location-listbox > li:nth-child(1)")).click();
 		
 		cp_incident_time.clear();
 		cp_incident_time.sendKeys(timeofday);
-		driver.findElement(By.cssSelector("#cp_incident_timeofday-popup > li:nth-child(1)")).click();
+		driver.findElement(By.cssSelector("#cp_incident_timeofday-listbox > li:nth-child(1)")).click();
 		
 		cp_incident_violence_type.clear();
 		cp_incident_violence_type.sendKeys(violencetype);
-		driver.findElement(By.cssSelector("#cp_incident_violence_type-popup > li:nth-child(1)")).click();
+		driver.findElement(By.cssSelector("#cp_incident_violence_type-listbox > li:nth-child(1)")).click();
 		
 		saveBtn.click();
 		//Incident record successfully created.
@@ -171,13 +173,13 @@ public class IncidentPage extends TestBase{
 		{
 			String typeValue=getcaseid.getAttribute("value");
 			System.out.println("Value of type attribute: "+typeValue);
-			Perpetrator_link.click();
+			Thread.sleep(4000);		Perpetrator_link.click();
 			EditBtn.click();
 			
 			cp_incident_perpetrator_nationality.clear();
 			Thread.sleep(2000);
 			cp_incident_perpetrator_nationality.sendKeys(nationality);
-			driver.findElement(By.cssSelector("#cp_incident_perpetrator_nationality-popup > li:nth-child(1)")).click();
+			driver.findElement(By.cssSelector("#cp_incident_perpetrator_nationality-listbox > li:nth-child(1)")).click();
 			age_incident.clear();
 			age_incident.sendKeys(age);
 			cp_incident_perpetrator_national_id_no.clear();
@@ -277,3 +279,4 @@ public class IncidentPage extends TestBase{
 			
 		}
 }
+

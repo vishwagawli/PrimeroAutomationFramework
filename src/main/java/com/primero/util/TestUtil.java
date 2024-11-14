@@ -44,7 +44,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.google.common.io.Files;
 import com.primero.base.TestBase;
 
-import dev.failsafe.internal.util.Assert;
+//import dev.failsafe.internal.util.Assert;
 
 public class TestUtil extends TestBase {
 	
@@ -108,7 +108,7 @@ public class TestUtil extends TestBase {
 		
 		//table[contains(@class,'MuiTable-root')]/tbody/tr[4]/td[3]"
 		String beforxpath="//table[contains(@class,'MuiTable-root')]/tbody/tr[";
-		String afterxpath= "]/td[1]";
+		String afterxpath= "]/td[3]";
 		for(int i=1;i<=25;i++)
 		{
 			String name = driver.findElement(By.xpath(beforxpath+i+afterxpath)).getText();
@@ -176,7 +176,7 @@ public class TestUtil extends TestBase {
 			monthYearVal = driver.findElement(By.xpath(xpath_MonthYearLabel)).getText();
 		}
 		Thread.sleep(2000);
-		driver.findElement(By.xpath("//p[contains(text(),'"+exDay+"')]")).click();
+		driver.findElement(By.xpath("//*[contains(text(),'"+exDay+"')]")).click();
 		//p[contains(text(),'17')]
 		
 	}

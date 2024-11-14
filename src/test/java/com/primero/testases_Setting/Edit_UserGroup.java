@@ -51,7 +51,7 @@ public class Edit_UserGroup extends TestBase {
 
 	
 	@Test(priority=1, dataProvider = "getTestDataFromExcel_SearchCases")
-	public void editRole(String text,String desc) throws Exception{
+	public void EditUserGroup(String text,String desc) throws Exception{
 		settingpage.goToUserGroupTab();
 		TestUtil.getNameFromTable(text); //change td value from 2 to 1 in getNameFromTable function
 		settingpage.editUserGroup(desc);

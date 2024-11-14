@@ -27,6 +27,9 @@ public class HomePage extends TestBase{
 	@FindBy(xpath="//*[contains(text(),'Setting')]")
 	WebElement settinghp;
 	
+	@FindBy(xpath="//*[contains(text(),'Support')]")
+	WebElement supporthp;
+	
 	@FindBy(xpath="//*[contains(text(),'Log out')]")
 	WebElement logoutlink; 
 	
@@ -55,6 +58,10 @@ public class HomePage extends TestBase{
 		return new CasesPage();
 	}
 	
+	public MarkOffline_CasesPage mo_clickOnCasesLink(){
+		caseshp.click();
+		return new MarkOffline_CasesPage();
+	}
 	public TracingRequestPage clickOnTracingReqLink(){
 		tracingreqhp.click();
 		return new TracingRequestPage();
@@ -68,6 +75,11 @@ public class HomePage extends TestBase{
 	public SettingPage clickOnSettingLink(){
 		settinghp.click();
 		return new SettingPage();
+	}
+	
+	public SupportPage clickOnSupportLink(){
+		supporthp.click();
+		return new SupportPage();
 	}
 	
 	public void logoutApplication()

@@ -51,7 +51,7 @@ public class Edit_User extends TestBase {
 
 	
 	@Test(priority=1, dataProvider = "getTestDataFromExcel_SearchCases")
-	public void createUser(String text,String usecode_t) throws Exception{
+	public void EditUser(String text,String usecode_t) throws Exception{
 		TestUtil.getNameFromTable(text);
 		settingpage.editUser(usecode_t);
 			

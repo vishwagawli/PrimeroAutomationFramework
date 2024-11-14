@@ -52,7 +52,7 @@ public class Add_UserGroup extends TestBase {
 	
 	@Test(priority=1, dataProvider = "getTestDataFromExcel_SearchCases")
 	//@Test(priority=1)
-	public void addRole(String name, String desc, String agency) throws Exception{
+	public void addUserGroup(String name, String desc, String agency) throws Exception{
 		
 		settingpage.goToUserGroupTab();
 		settingpage.addUserGroup(name, desc, agency);

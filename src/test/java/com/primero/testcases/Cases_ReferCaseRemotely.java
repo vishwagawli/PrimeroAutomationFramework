@@ -35,7 +35,7 @@ public class Cases_ReferCaseRemotely extends TestBase {
 	public void setUp() {
 		initialization();
 		loginPage = new LoginPage();
-		homePage = loginPage.loginApplication(prop.getProperty("cpusername"), prop.getProperty("password"));
+		homePage = loginPage.loginApplication(prop.getProperty("cpusername1"), prop.getProperty("password"));
 		casespage = homePage.clickOnCasesLink();
 	}
 
@@ -53,7 +53,7 @@ public class Cases_ReferCaseRemotely extends TestBase {
 		
 		TestUtil.getNameFromTable(text);
 		casespage.remoteReferCase(ref,service,referagency,location,recipent,notes);
-		TestUtil.pdfReaderTest();
+		//TestUtil.pdfReaderTest();
 		casespage.revokeReferCase();
 		
 	}

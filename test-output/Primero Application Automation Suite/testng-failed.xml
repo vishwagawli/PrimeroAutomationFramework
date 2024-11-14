@@ -6,13 +6,12 @@
   </listeners>
   <test thread-count="5" name="Primero Application Test Cases(failed)">
     <classes>
-      <class name="com.primero.testcases.CasesPageTest">
+      <class name="com.primero.testcases.Cases_AddNewCasesPageTest">
         <methods>
           <include name="setUp"/>
-          <include name="tearDown"/>
-          <include name="sendSearchBoxData" invocation-numbers="0"/>
+          <include name="addNewCase" invocation-numbers="0"/>
         </methods>
-      </class> <!-- com.primero.testcases.CasesPageTest -->
+      </class> <!-- com.primero.testcases.Cases_AddNewCasesPageTest -->
     </classes>
   </test> <!-- Primero Application Test Cases(failed) -->
 </suite> <!-- Failed suite [Primero Application Automation Suite] -->

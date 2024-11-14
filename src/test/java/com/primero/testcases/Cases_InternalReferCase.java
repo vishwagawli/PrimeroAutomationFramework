@@ -35,7 +35,7 @@ public class Cases_InternalReferCase extends TestBase {
 	public void setUp() {
 		initialization();
 		loginPage = new LoginPage();
-		homePage = loginPage.loginApplication(prop.getProperty("cpusername"), prop.getProperty("password"));
+		homePage = loginPage.loginApplication(prop.getProperty("cpusername1"), prop.getProperty("password"));
 		casespage = homePage.clickOnCasesLink();
 	}
 
@@ -59,13 +59,13 @@ public class Cases_InternalReferCase extends TestBase {
 				
 		initialization();
 		loginPage = new LoginPage();
-		homePage = loginPage.loginApplication(prop.getProperty("cpusername1"), prop.getProperty("password"));
+		homePage = loginPage.loginApplication(prop.getProperty("cpusername"), prop.getProperty("password"));
 		casespage = homePage.clickOnCasesLink();
 		
 		TestUtil.getNameFromTable(text);
-		casespage.acceptReferCase();
+		//casespage.acceptReferCase();
 		
-	//	casespage.rejectReferCase(reason);
+		casespage.rejectReferCase(reason);
 		
 	}
 	

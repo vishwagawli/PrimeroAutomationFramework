@@ -54,6 +54,7 @@ public class Add_Agency extends TestBase {
 	//@Test(priority=1)
 	public void addAgency(String name, String acode, String desc, String service) throws Exception{
 		
+		settingpage.makeOffline();
 		settingpage.goToAgencyTab();
 		settingpage.addAgency(name,acode,desc,service);
 	}

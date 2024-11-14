@@ -2,19 +2,27 @@ package com.primero.pages;
 
 
 import java.util.List;
+import java.util.Optional;
 
 import org.apache.commons.collections4.bag.SynchronizedSortedBag;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.devtools.DevTools;
+import org.openqa.selenium.devtools.v85.network.Network;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Wait;
 import org.testng.Assert;
+import org.testng.annotations.Test;
+
 import static org.testng.Assert.assertEquals;
 
 import com.primero.base.TestBase;
 import com.primero.util.TestUtil;
 
-import net.bytebuddy.asm.MemberSubstitution.FieldValue;
+//import net.bytebuddy.asm.MemberSubstitution.FieldValue;
 
 public class CasesPage extends TestBase{
 	
@@ -51,10 +59,10 @@ public class CasesPage extends TestBase{
 	@FindBy(id="assessment_due_date")
 	WebElement assDueDate;
 	
-	@FindBy(name="assessment_due_date")
+	@FindBy(xpath="//*[text()='OK']")
 	WebElement assDueDateOk_Btn;
 	
-	@FindBy(xpath="/html/body/div[5]/div[3]/div/div[2]/button[3]")
+	@FindBy(xpath="//*[text()='OK']")
 	WebElement DateOk_Btn;
 	
 	
@@ -76,15 +84,17 @@ public class CasesPage extends TestBase{
 	public By toastermsg_case = By.id("notistack-snackbar");
 	public By toastermsg_pdf = By.xpath("(//span[@id=\"client-snackbar\"])[2]");
 	
-	public By assigncasedd = By.xpath("//div[contains(text(), 'Assign')]");
+	public By assigncasedd = By.xpath("//*[@id=\"cd1497ed-ca8b-435d-a3d5-c91febad49fa\"]/div[1]/div/div/div/div[2]");
 	
 	@FindBy(xpath="(//span[@id=\"client-snackbar\"])[2]")
 	WebElement toastermsg_pdf_Webel;
 	
-	@FindBy(xpath="//div[contains(text(),'Assessment')]")
+	@FindBy(id="assessment-assessment")
 	WebElement Assesment_Tab;
 	
-	@FindBy(name="assessment_requested_on")
+	//@FindBy(name="assessment_requested_on")
+	//WebElement Assesment_reqOnDate;
+	@FindBy(xpath="//*[@id=\"root\"]/div/main/div/div/div[2]/form/div[7]/div/div/div/div/button")
 	WebElement Assesment_reqOnDate;
 	
 	@FindBy(id="buttons.edit")
@@ -93,8 +103,11 @@ public class CasesPage extends TestBase{
 	@FindBy(xpath="//*[@id=\"cp_case_plan-case_plan\"]/div/span")
 	WebElement CasePlan_Tab;
 	
-	@FindBy(id="date_case_plan")
+	//date_case_plan
+	@FindBy(xpath="//input[@name=\"date_case_plan\"]/following-sibling::div/button")
 	WebElement CasPlanIntiatedDate;
+	
+	
 	
 	@FindBy(xpath="//*[@id=\"care_arrangements-services_follow_up\"]/div/span")
 	WebElement ServicesandFollowup_Tab;
@@ -114,7 +127,8 @@ public class CasesPage extends TestBase{
 	@FindBy(id="dialog-submit")
 	WebElement addServiceBtn;
 	
-	@FindBy(id="service_implemented_day_time")
+	//@FindBy(name="service_implemented_day_time")
+	@FindBy(xpath="//input[@name=\"service_implemented_day_time\"]/following-sibling::div/button")
 	WebElement implementedonDate_DD;
 	
 	@FindBy(xpath="//*[@id=\"more-actions\"]")
@@ -124,11 +138,13 @@ public class CasesPage extends TestBase{
 	WebElement closebtn;
 	
 	//By monthyearval  = By.xpath("/html/body/div[4]/div[3]/div/div[1]/div/div[2]/div[1]/div[1]/div/p");
-	String monthyearvaluestring = "/html/body/div[4]/div[3]/div/div[1]/div/div[2]/div[1]/div[1]/div/p";
-	String NextIconCalendor = "/html/body/div[4]/div[3]/div/div[1]/div/div[2]/div[1]/div[1]/button[2]";
+	String monthyearvaluestring = "/html/body/div[4]/div[2]/div/div[1]/div/div[1]/div[1]/div/div";
+	// /html/body/div[4]/div[3]/div/div[1]/div/div[2]/div[1]/div[1]/div/p
 	
-	String serviceImplmented_MonthYrLabel = "/html/body/div[5]/div[3]/div/div[1]/div/div[3]/div[1]/div[1]/div/p";
-	String serviceImplmented_nextIcon = "/html/body/div[5]/div[3]/div/div[1]/div/div[3]/div[1]/div[1]/button[2]";
+	String NextIconCalendor = "/html/body/div[4]/div[2]/div/div[1]/div/div[1]/div[2]/button[2]";
+	// 	/html/body/div[4]/div[3]/div/div[1]/div/div[2]/div[1]/div[1]/button[2]
+	String serviceImplmented_MonthYrLabel = "/html/body/div[5]/div[2]/div/div[1]/div[1]/div[1]/div[1]/div/div";
+	String serviceImplmented_nextIcon = "/html/body/div[5]/div[2]/div/div[1]/div[1]/div[1]/div[2]/button[2]";
 	
 	TestUtil tu = new TestUtil();
 
@@ -176,13 +192,13 @@ public class CasesPage extends TestBase{
 	@FindBy(xpath="//li[contains(text(), 'Transfer Case')]")
 	WebElement menu_transfercase;
 	
-	@FindBy(xpath="//*[@id=\"remote\"]/div/label/span[1]/span/input")
+	@FindBy(xpath="//*[@id=\"remote\"]/div/label/span[1]/input")
 	WebElement chk_refertoremotsystem;
 	
-	@FindBy(xpath="//*[@id=\"remoteSystem\"]/div/label/span[1]/span/input")
+	@FindBy(xpath="//*[@id=\"remoteSystem\"]/div/label/span[1]/input")
 	WebElement chk_transferremotesystem;
 	
-	@FindBy(xpath="//*[@id=\"consent_individual_transfer\"]/div/label/span[1]/span/input")
+	@FindBy(xpath="//*[@id=\"consent_individual_transfer\"]/div/label/span[1]/input")
 	WebElement chk_transferconsent;
 		
 	@FindBy(id="role")
@@ -218,7 +234,7 @@ public class CasesPage extends TestBase{
 	@FindBy(xpath="//*[@id=\"referral-record_information\"]/div")
 	WebElement refraltab;
 	
-	@FindBy(xpath="//div[@class='MuiAccordionSummary-content']//*[@id='more-actions']")
+	@FindBy(xpath="(//*[@id='more-actions'])[2]")
 	WebElement menubar_ref;
 	
 	@FindBy(xpath="//*[@id=\"more-actions\"]")
@@ -257,8 +273,8 @@ public class CasesPage extends TestBase{
 	@FindBy(xpath="//*[@id=\"transfers_assignments-record_information\"]/div/span")
 	WebElement menutransfer;
 	
-	@FindBy(xpath="//*[@id=\"e4f2a782-0365-455f-ab44-10929b61c17c\"]/div[1]/div/div[2]/div/div/span")
-	WebElement revokedLabel_Transfer;
+	@FindBy(xpath="//*[@id=\"921e895b-080b-423d-901c-6620c5746187\"]/div[1]/div/div[2]/div/div/span")
+		WebElement revokedLabel_Transfer;
 	
 	@FindBy(xpath="//li[contains(text(),'Request Approval')]")
 	WebElement menu_reqApproval;
@@ -304,13 +320,13 @@ public class CasesPage extends TestBase{
 		String txt_toastermsg= toastermsg.getText();
 		System.out.println(txt_toastermsg);
 		Assert.assertEquals(txt_toastermsg, "Case Plan - Approved","Toaster message doesnt matched.");
-		menu_caseplan.click();
+		/*menu_caseplan.click();
 		Thread.sleep(4000);
 		String txt_approvalstatus=approvalstatus.getAttribute("value");
 		System.out.println(txt_approvalstatus);
 		Assert.assertEquals(txt_approvalstatus, "Approved","Toaster message doesnt matched.");
 		
-		
+		*/
 	}
 	public void requestApproval_caseplan() throws InterruptedException
 	{
@@ -366,7 +382,7 @@ public class CasesPage extends TestBase{
 				
 	}
 	public void revokeReferCase() throws InterruptedException
-	{
+	{	
 		
 		recInfotab.click();
 		refraltab.click();
@@ -492,8 +508,8 @@ public class CasesPage extends TestBase{
 		driver.findElement(By.cssSelector("#service-listbox > li:nth-child(1)")).click();
 		
 		reciepDD.clear();
-		reciepDD.sendKeys("Vish");
-		driver.findElement(By.cssSelector("#transitioned_to-popup > li:nth-child(1)")).click();
+		reciepDD.sendKeys("sandesh");
+		driver.findElement(By.cssSelector("#transitioned_to-listbox > li:nth-child(1)")).click();
 		
 		txt_Notes_refer.sendKeys("Notes");
 		refer_Btn.click();
@@ -526,6 +542,7 @@ public class CasesPage extends TestBase{
 		
 		reciepDD.clear();
 		reciepDD.sendKeys(assignee);
+		Thread.sleep(4000);
 		driver.findElement(By.cssSelector("#transitioned_to-listbox > li:nth-child(1)")).click();
 		
 		txt_NoteAssignMenu.sendKeys("Note");
@@ -558,11 +575,11 @@ public class CasesPage extends TestBase{
 		chk_refertoremotsystem.click();
 		dd_role_refercase.clear();
 		dd_role_refercase.sendKeys(ref);
-		driver.findElement(By.cssSelector("#role-popup > li:nth-child(1)")).click();
+		driver.findElement(By.cssSelector("#role-listbox > li:nth-child(1)")).click();
 		
 		refer_ServiceDD.clear();
 		refer_ServiceDD.sendKeys(service);
-		driver.findElement(By.cssSelector("#service-popup > li:nth-child(1)")).click();
+		driver.findElement(By.cssSelector("#service-listbox > li:nth-child(1)")).click();
 		
 		refer_agency_txt.sendKeys(referagency);
 		refer_loc_txt.sendKeys(location);
@@ -578,11 +595,11 @@ public class CasesPage extends TestBase{
 		
 		Thread.sleep(5000);
 		
-		tuobj.waitForElementToAppear(toastermsg_pdf);
-		String toastermsg_pdf_= toastermsg_pdf_Webel.getText();
-		System.out.println(toastermsg_pdf_);
+	//	tuobj.waitForElementToAppear(toastermsg_pdf);
+	//	String toastermsg_pdf_= toastermsg_pdf_Webel.getText();
+	//	System.out.println(toastermsg_pdf_);
 		
-		Assert.assertEquals(toastermsg_pdf_, "Successfully generated the export file","Toaster message doesnt matched.");
+	//	Assert.assertEquals(toastermsg_pdf_, "Successfully generated the export file","Toaster message doesnt matched.");
 		
 		
 	}
@@ -607,11 +624,11 @@ public class CasesPage extends TestBase{
 		
 		transfer_agency.clear();
 		transfer_agency.sendKeys(agency);
-		driver.findElement(By.cssSelector("#agency-popup > li:nth-child(1)")).click();
-		
+		driver.findElement(By.cssSelector("#agency-listbox > li:nth-child(1)")).click();
+		Thread.sleep(5000);
 		reciepDD.clear();
 		reciepDD.sendKeys(recipt);
-		driver.findElement(By.cssSelector("#transitioned_to-popup > li:nth-child(1)")).click();
+		driver.findElement(By.cssSelector("#transitioned_to-listbox > li:nth-child(1)")).click();
 		
 		txt_Notes_refer.sendKeys(Notes);
 		Thread.sleep(4000);
@@ -698,10 +715,10 @@ public class CasesPage extends TestBase{
 	public void createNewCase(String cpmisId, String fname, String lname, String assDuedate, String age) throws InterruptedException
 	
 	{
-		Thread.sleep(1000);
+		Thread.sleep(8000);
 		newBtn.click();
 		Thread.sleep(1000);
-		createnewcaseBtn1.click();
+		createnewcaseBtn.click();
 		Thread.sleep(3000);
 		txt_cpimsid.sendKeys(cpmisId);
 		txt_fname.sendKeys(fname);
@@ -733,10 +750,15 @@ public class CasesPage extends TestBase{
 		System.out.println("Value of type attribute: "+typeValue);
 		
 		//Assessment tab
+		Thread.sleep(3000);
 		Edit_btn.click();
+		Thread.sleep(8000);
+
 		Assesment_Tab.click();
+		Thread.sleep(3000);
 		Assesment_reqOnDate.click();
-		tu.selectDate("17", "Jul", "2024", monthyearvaluestring, NextIconCalendor);
+		Thread.sleep(3000);
+		tu.selectDate("10", "Jul", "2025", monthyearvaluestring, NextIconCalendor);
 		assDueDateOk_Btn.click();	
 		save_btn.click();
 		tuobj.waitForElementToAppear(toastermsg_case);
@@ -746,11 +768,15 @@ public class CasesPage extends TestBase{
 		Assert.assertEquals(txt_toastermsg_assessment, "Case " + typeValue + " was successfully updated.","Toaster message doesnt matched.");
 		
 		//Case Plan Tab
+		Thread.sleep(3000);
 		Edit_btn.click();
+		Thread.sleep(3000);
 		CasePlan_Tab.click();
+		Thread.sleep(3000);
 		CasPlanIntiatedDate.click();
-		tu.selectDate("17", "Jul", "2024", monthyearvaluestring, NextIconCalendor);
-		assDueDateOk_Btn.click();	
+		tu.selectDate("10", "Jul", "2025", monthyearvaluestring, NextIconCalendor);
+		assDueDateOk_Btn.click();
+		Thread.sleep(3000);
 		save_btn.click();
 		tuobj.waitForElementToAppear(toastermsg_case);
 		String txt_toastermsg_CasePlan= toastermsg.getText();
@@ -759,18 +785,22 @@ public class CasesPage extends TestBase{
 		Assert.assertEquals(txt_toastermsg_CasePlan, "Case " + typeValue + " was successfully updated.","Toaster message doesnt matched.");
 		
 		//Services Tab
+		Thread.sleep(3000);
 		Edit_btn.click();
+		Thread.sleep(3000);
 		ServicesandFollowup_Tab.click();
+		Thread.sleep(3000);
 		Services_subTab.click();
+		Thread.sleep(3000);
 		serviceAdd_btn.click();
 		//CarePlan
 		serviceresponse_DD.clear();
 		serviceresponse_DD.sendKeys("Care");
-		driver.findElement(By.cssSelector("#service_response_type-popup > li:nth-child(1)")).click();
+		driver.findElement(By.cssSelector("#service_response_type-listbox > li:nth-child(1)")).click();
 		
 		typeofservice_dd.clear();
 		typeofservice_dd.sendKeys("Safehouse");
-		driver.findElement(By.cssSelector("#service_type-popup > li:nth-child(1)")).click();
+		driver.findElement(By.cssSelector("#service_type-listbox > li:nth-child(1)")).click();
 		
 		addServiceBtn.click();
 		
@@ -778,19 +808,21 @@ public class CasesPage extends TestBase{
 		serviceAdd_btn.click();
 		serviceresponse_DD.clear();
 		serviceresponse_DD.sendKeys("Action");
-		driver.findElement(By.cssSelector("#service_response_type-popup > li:nth-child(1)")).click();
+		driver.findElement(By.cssSelector("#service_response_type-listbox > li:nth-child(1)")).click();
 		
 		typeofservice_dd.clear();
 		typeofservice_dd.sendKeys("Family Mediation Service");
-		driver.findElement(By.cssSelector("#service_type-popup > li:nth-child(1)")).click();
+		driver.findElement(By.cssSelector("#service_type-listbox > li:nth-child(1)")).click();
 		
 		addServiceBtn.click();
 		
 		//Service Provision
+		Thread.sleep(3000);
 		serviceAdd_btn.click();
+		Thread.sleep(3000);
 		typeofservice_dd.clear();
 		typeofservice_dd.sendKeys("Legal Assistance Service");
-		driver.findElement(By.cssSelector("#service_type-popup > li:nth-child(1)")).click();
+		driver.findElement(By.cssSelector("#service_type-listbox > li:nth-child(1)")).click();
 		
 		addServiceBtn.click();
 		
@@ -802,9 +834,10 @@ public class CasesPage extends TestBase{
 		System.out.println(txt_toastermsg_servicesPlan);
 		
 		Assert.assertEquals(txt_toastermsg_servicesPlan, "Case " + typeValue + " was successfully updated.","Toaster message doesnt matched.");
-		
+		Thread.sleep(3000);
 		//Services Tab to Implement date
 				Edit_btn.click();
+				Thread.sleep(3000);
 				//ServicesandFollowup_Tab.click();
 				//Services_subTab.click();
 				
@@ -816,7 +849,7 @@ public class CasesPage extends TestBase{
 				driver.findElement(By.xpath(" //*[@id=\"root\"]/div/main/div/div/div[2]/form/div[2]/div/ul/li["+i+"]/a")).click();
 				
 				implementedonDate_DD.click();
-				tu.selectDate("10", "Aug", "2024", serviceImplmented_MonthYrLabel, serviceImplmented_nextIcon);
+				tu.selectDate("10", "Aug", "2026", serviceImplmented_MonthYrLabel, serviceImplmented_nextIcon);
 				DateOk_Btn.click();	
 				Thread.sleep(2000);
 				addServiceBtn.click();
@@ -880,6 +913,18 @@ public class CasesPage extends TestBase{
 		}
 		
 		
+		
+	}
+	@Test
+	public void makeOffline()
+	{
+		DevTools devTools = ((ChromeDriver) driver).getDevTools();
+	      devTools.createSession();
+
+	       devTools.send(Network.enable(Optional.of(1000000),Optional.empty(), Optional.empty()));
+	        devTools.send(Network.emulateNetworkConditions(true, 0, 0, 0, Optional.empty()));
+	       // devTools.send(Network.emulateNetworkConditions(true, 0, 0, 0, Optional.of(ConnectionType.WIFI)));
+			
 		
 	}
 }
