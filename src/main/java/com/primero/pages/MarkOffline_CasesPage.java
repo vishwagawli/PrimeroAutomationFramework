@@ -84,6 +84,8 @@ public class MarkOffline_CasesPage extends TestBase{
 	public By toastermsg_case = By.id("notistack-snackbar");
 	public By toastermsg_pdf = By.xpath("(//span[@id=\"client-snackbar\"])[2]");
 	
+	public By Offline_menu= By.xpath("//span[contains(text(), 'Offline')]");
+	
 	public By assigncasedd = By.xpath("//*[@id=\"cd1497ed-ca8b-435d-a3d5-c91febad49fa\"]/div[1]/div/div/div/div[2]");
 	
 	@FindBy(xpath="(//span[@id=\"client-snackbar\"])[2]")
@@ -309,16 +311,16 @@ public class MarkOffline_CasesPage extends TestBase{
 		PageFactory.initElements(driver, this);
 	}
 	
-	public void approvals(String comment) throws InterruptedException
+	public void approvals() throws InterruptedException
 	{
 		menubar.click();
 		menu_Approval.click();
-		commentsAppeoval.sendKeys(comment);
+		commentsAppeoval.sendKeys("Approval Comment");
 		addServiceBtn.click();
 		tuobj.waitForElementToAppear(toastermsg_case);
 		String txt_toastermsg= toastermsg.getText();
 		System.out.println(txt_toastermsg);
-		Assert.assertEquals(txt_toastermsg, "Case Plan - Approved","Toaster message doesnt matched.");
+		Assert.assertEquals(txt_toastermsg, "You are currently offline. Your changes will be submitted when you are back online.","Toaster message doesnt matched.");
 		/*menu_caseplan.click();
 		Thread.sleep(4000);
 		String txt_approvalstatus=approvalstatus.getAttribute("value");
@@ -341,7 +343,7 @@ public class MarkOffline_CasesPage extends TestBase{
 		tuobj.waitForElementToAppear(toastermsg_case);
 		String txt_toastermsg= toastermsg.getText();
 		System.out.println(txt_toastermsg);
-		Assert.assertEquals(txt_toastermsg, "Approval requested for Case Plan form.","Toaster message doesnt matched.");
+		Assert.assertEquals(txt_toastermsg, "You are currently offline. Your changes will be submitted when you are back online.","Toaster message doesnt matched.");
 		//Approval requested for Case Plan form.
 		
 		
@@ -915,7 +917,7 @@ public class MarkOffline_CasesPage extends TestBase{
 		
 	}
 	@Test
-	public void makeOffline()
+	public void makeOffline() throws InterruptedException
 	{
 		DevTools devTools = ((ChromeDriver) driver).getDevTools();
 	      devTools.createSession();
@@ -923,7 +925,13 @@ public class MarkOffline_CasesPage extends TestBase{
 	       devTools.send(Network.enable(Optional.of(1000000),Optional.empty(), Optional.empty()));
 	        devTools.send(Network.emulateNetworkConditions(true, 0, 0, 0, Optional.empty()));
 	       // devTools.send(Network.emulateNetworkConditions(true, 0, 0, 0, Optional.of(ConnectionType.WIFI)));
-			
+	    
+		
+		tuobj.waitForElementToAppear(toastermsg_case);
+		String txt_toastermsg= toastermsg.getText();
+		System.out.println(txt_toastermsg);
+		Assert.assertEquals(txt_toastermsg, "Currently in offline mode","Toaster message doesnt matched.");
+		
 		
 	}
 }

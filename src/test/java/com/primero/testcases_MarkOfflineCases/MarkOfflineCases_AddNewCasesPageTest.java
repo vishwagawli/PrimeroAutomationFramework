@@ -84,9 +84,14 @@ public class MarkOfflineCases_AddNewCasesPageTest extends TestBase {
 	Thread.sleep(5000);
 	mo_casepage.reopenCase();
 	Thread.sleep(5000);
-	mo_casepage.disableCase();
+	mo_casepage.requestApproval_caseplan();
+	
 	Thread.sleep(5000);
 	mo_casepage.enableCase();
+	Thread.sleep(5000);
+	mo_casepage.disableCase();
+	Thread.sleep(5000);
+
 	
 	}
 

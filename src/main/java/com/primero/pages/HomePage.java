@@ -62,6 +62,10 @@ public class HomePage extends TestBase{
 		caseshp.click();
 		return new MarkOffline_CasesPage();
 	}
+	public MarkOffline_IncidentPage mo_clickOnIncidentLink(){
+		incidenthp.click();
+		return new MarkOffline_IncidentPage();
+	}
 	public TracingRequestPage clickOnTracingReqLink(){
 		tracingreqhp.click();
 		return new TracingRequestPage();

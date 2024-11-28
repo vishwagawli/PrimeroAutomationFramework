@@ -1,4 +1,4 @@
-package com.primero.testcases_incident;
+package com.primero.testcases_MarkOfflineCases;
 
 import java.io.IOException;
 
@@ -18,17 +18,18 @@ import com.primero.pages.CasesPage;
 import com.primero.pages.HomePage;
 import com.primero.pages.IncidentPage;
 import com.primero.pages.LoginPage;
+import com.primero.pages.MarkOffline_IncidentPage;
 import com.primero.util.TestUtil;
 
-public class CP_Edit_Incident extends TestBase {
+public class CP_Add_Incident_Markoffline extends TestBase {
 	LoginPage loginPage;
 	HomePage homePage;
-	//CasesPage casespage;
-	IncidentPage incidentpage;
+	//IncidentPage incidentpage;
+	MarkOffline_IncidentPage mo_incidentpage;
 	
-	String sheetName = "edit_incident";
+	String sheetName = "incident";
 	
-	public CP_Edit_Incident() {
+	public CP_Add_Incident_Markoffline() {
 		super();
 	}
 
@@ -38,7 +39,7 @@ public class CP_Edit_Incident extends TestBase {
 		initialization();
 		loginPage = new LoginPage();
 		homePage = loginPage.loginApplication(prop.getProperty("cpusername"), prop.getProperty("password"));
-		incidentpage = homePage.clickOnIncidentLink();
+		mo_incidentpage = homePage.mo_clickOnIncidentLink();
 	}
 
 	@DataProvider
@@ -50,12 +51,14 @@ public class CP_Edit_Incident extends TestBase {
 
 	
 	@Test(priority=1, dataProvider = "getTestDataFromExcel_SearchCases")
-	public void editIncident(String text, String nationality, String age, String nationalId ) throws Exception{
+	public void createIncident(String violence, String area, String location, String timeofday, String violencetype) throws Exception{
 	
 		
-		TestUtil.getNameFromTable(text);
-		incidentpage.edit_Incident(nationality,age,nationalId);
-
+	//	TestUtil.getNameFromTable(text);
+		mo_incidentpage.makeOffline();
+	//	mo_incidentpage.createNewIncident(violence,area,location,timeofday,violencetype);
+		mo_incidentpage.mo_edit(violence, area, location, timeofday, violencetype, location, violencetype, location);
+		
 		
 	}
 	
