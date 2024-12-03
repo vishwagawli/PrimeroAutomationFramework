@@ -6,7 +6,7 @@
       <class name="com.primero.testcases_MarkOfflineCases.CP_Add_Incident_Markoffline">
         <methods>
           <include name="setUp"/>
-          <include name="createIncident" invocation-numbers="0"/>
+          <include name="createIncident"/>
         </methods>
       </class> <!-- com.primero.testcases_MarkOfflineCases.CP_Add_Incident_Markoffline -->
     </classes>

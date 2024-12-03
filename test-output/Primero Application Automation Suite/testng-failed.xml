@@ -9,6 +9,7 @@
       <class name="com.primero.testcases.Cases_AddNewCasesPageTest">
         <methods>
           <include name="setUp"/>
+          <include name="tearDown"/>
           <include name="addNewCase" invocation-numbers="0"/>
         </methods>
       </class> <!-- com.primero.testcases.Cases_AddNewCasesPageTest -->
