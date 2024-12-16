@@ -35,7 +35,7 @@ public class Cases_AssignCase extends TestBase {
 	public void setUp() {
 		initialization();
 		loginPage = new LoginPage();
-		homePage = loginPage.loginApplication(prop.getProperty("cpusername1"), prop.getProperty("password"));
+		homePage = loginPage.loginApplication(prop.getProperty("cpusernameqa"), prop.getProperty("password"));
 		casespage = homePage.clickOnCasesLink();
 	}
 

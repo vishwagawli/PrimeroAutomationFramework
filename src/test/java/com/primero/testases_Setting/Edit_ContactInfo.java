@@ -51,7 +51,7 @@ public class Edit_ContactInfo extends TestBase {
 
 	
 	@Test(priority=1)
-	public void editCI() throws Exception{
+	public void editContactInfo() throws Exception{
 		settingpage.goTocontactinfoTab();
 		settingpage.editContactInfo();
 			

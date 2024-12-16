@@ -6,13 +6,15 @@
 	</listeners>
 <test name="Primero Application Test Cases">
 	<classes>
+	
+	<!--	<class name="com.primero.testcases.LoginPageTest"></class>
+		<class name="com.primero.testcases.LogoutPageTest"></class>
+		<class name="com.primero.testcases.InvalidLoginPageTest"></class>
+	
+		<class name="com.primero.testcases.Cases_AssignCase"></class>-->
 		
-		
-		
-	<!-- <class name="com.primero.testcases.Cases_AssignFlagPageTest"></class>
-		<class name="com.primero.testcases.Cases_InternalReferCase"></class>
-		<class name="com.primero.testcases.Cases_AssignCase"></class>-->	
-		<class name="com.primero.testcases.Cases_AddNewCasesPageTest"></class>
+
+			<class name="com.primero.testcases.Cases_AddNewCasesPageTest"></class>
 		
 </classes>
 </test>

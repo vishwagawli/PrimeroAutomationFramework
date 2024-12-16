@@ -51,13 +51,13 @@ public class ContactInfo extends TestBase {
 	}
 
 	@Test(priority=1)
-	public void verifySupportLabel() throws IOException{
+	public void verifySupport() throws IOException{
 		
 		supportpage.verifySupportLabelPresent();
 		TestUtil.takeScreenshotAtEndOfTest();
 	}
 	@Test(priority=2)
-	public void verifyorgName() throws InterruptedException
+	public void verifyorgName_Support() throws InterruptedException
 	{
 		settingpage=homePage.clickOnSettingLink();
 		settingpage.goTocontactinfoTab();
@@ -71,7 +71,7 @@ public class ContactInfo extends TestBase {
 	
 	
 	
-	//@AfterMethod
+	@AfterMethod
 	public void tearDown(){
 		driver.quit();
 	}

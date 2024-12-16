@@ -50,7 +50,7 @@ public class CP_AssignFlag_Incident extends TestBase {
 
 	
 	@Test(priority=1, dataProvider = "getTestDataFromExcel_SearchCases")
-	public void assignFlag(String text, String reason, String reasontounflag) throws InterruptedException, IOException{
+	public void assignFlag_Incident(String text, String reason, String reasontounflag) throws InterruptedException, IOException{
 		TestUtil.getNameFromTable(text);
 		incidentpage.assignFlag(reason);
 	

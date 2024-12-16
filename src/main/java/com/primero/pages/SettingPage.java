@@ -361,7 +361,7 @@ public class SettingPage extends TestBase{
 		editBtn.click();
 		org_ci.clear();
 		org_ci.sendKeys("Organization name");
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		JavascriptExecutor executor = (JavascriptExecutor)driver;
 		executor.executeScript("arguments[0].click();", saveBtn);
 		String txt_toastermsg_acceptref= toastermsg.getText();
@@ -468,7 +468,7 @@ public class SettingPage extends TestBase{
 		Thread.sleep(1000);
 		Test_subForm.click();
 		desc_agency.clear();
-		desc_agency.sendKeys("Description Information");
+		desc_agency.sendKeys("Description Informationnn");
 		saveBtn.click();
 		
 		String txt_toastermsg_acceptref= toastermsg.getText();

@@ -50,7 +50,7 @@ public class CP_Disable_Incident extends TestBase {
 
 	
 	@Test(priority=1, dataProvider = "getTestDataFromExcel_SearchCases")
-	public void assignFlag(String text) throws InterruptedException, IOException{
+	public void disableIncident(String text) throws InterruptedException, IOException{
 		TestUtil.getNameFromTable(text);
 	incidentpage.disableincident();
 	

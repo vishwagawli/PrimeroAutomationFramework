@@ -35,7 +35,7 @@ public class Cases_ReferCaseRemotely extends TestBase {
 	public void setUp() {
 		initialization();
 		loginPage = new LoginPage();
-		homePage = loginPage.loginApplication(prop.getProperty("cpusername1"), prop.getProperty("password"));
+		homePage = loginPage.loginApplication(prop.getProperty("cpusername"), prop.getProperty("password"));
 		casespage = homePage.clickOnCasesLink();
 	}
 
@@ -48,11 +48,11 @@ public class Cases_ReferCaseRemotely extends TestBase {
 
 	
 	@Test(priority=1, dataProvider = "getTestDataFromExcel_SearchCases")
-	public void remoteReferCase(String text,String ref,String service, String referagency, String location, String recipent, String notes) throws Exception{
+	public void remoteReferCase(String text,String ref,String service, String location, String recipent, String notes) throws Exception{
 	
 		
 		TestUtil.getNameFromTable(text);
-		casespage.remoteReferCase(ref,service,referagency,location,recipent,notes);
+		casespage.remoteReferCase(ref,service,location,recipent,notes);
 		//TestUtil.pdfReaderTest();
 		casespage.revokeReferCase();
 		

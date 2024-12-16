@@ -50,9 +50,10 @@ public class CP_Enable_Incident extends TestBase {
 
 	
 	@Test(priority=1, dataProvider = "getTestDataFromExcel_SearchCases")
-	public void assignFlag(String text) throws InterruptedException, IOException{
+	public void enableIncident(String text) throws InterruptedException, IOException{
 		
-		incidentpage.PreRequisiteenableIncident();
+	//	incidentpage.PreRequisiteenableIncident();
+		Thread.sleep(8000);
 		TestUtil.getNameFromTable(text);
 	//
 		incidentpage.enableIncident();

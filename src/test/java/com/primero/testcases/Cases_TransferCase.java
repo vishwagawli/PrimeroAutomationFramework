@@ -35,7 +35,7 @@ public class Cases_TransferCase extends TestBase {
 	public void setUp() {
 		initialization();
 		loginPage = new LoginPage();
-		homePage = loginPage.loginApplication(prop.getProperty("cpusername1"), prop.getProperty("password"));
+		homePage = loginPage.loginApplication(prop.getProperty("cpusername"), prop.getProperty("password"));
 		casespage = homePage.clickOnCasesLink();
 	}
 
@@ -48,7 +48,7 @@ public class Cases_TransferCase extends TestBase {
 
 	
 	@Test(priority=1, dataProvider = "getTestDataFromExcel_SearchCases")
-	public void remoteReferCase(String text,String agency,String recipt, String Notes) throws Exception{
+	public void transferCase(String text,String agency,String recipt, String Notes) throws Exception{
 	
 		
 		TestUtil.getNameFromTable(text);

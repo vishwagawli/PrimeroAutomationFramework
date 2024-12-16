@@ -3,12 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.primero.testcases_MarkOfflineCases.CP_Add_Incident_Markoffline">
+      <class name="com.primero.testcases_MarkOfflineCases.MarkOfflineCases_AddNewCasesPageTest">
         <methods>
+          <include name="addNewCase" invocation-numbers="0"/>
           <include name="setUp"/>
-          <include name="createIncident"/>
         </methods>
-      </class> <!-- com.primero.testcases_MarkOfflineCases.CP_Add_Incident_Markoffline -->
+      </class> <!-- com.primero.testcases_MarkOfflineCases.MarkOfflineCases_AddNewCasesPageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

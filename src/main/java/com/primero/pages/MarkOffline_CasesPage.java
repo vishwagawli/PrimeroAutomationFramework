@@ -91,7 +91,7 @@ public class MarkOffline_CasesPage extends TestBase{
 	@FindBy(xpath="(//span[@id=\"client-snackbar\"])[2]")
 	WebElement toastermsg_pdf_Webel;
 	
-	@FindBy(id="assessment-assessment")
+	@FindBy(id="assessment_status-assessment")
 	WebElement Assesment_Tab;
 	
 	//@FindBy(name="assessment_requested_on")
@@ -108,7 +108,7 @@ public class MarkOffline_CasesPage extends TestBase{
 	@FindBy(name="date_case_plan")
 	WebElement CasPlanIntiatedDate;
 	
-	@FindBy(xpath="//*[@id=\"care_arrangements-services_follow_up\"]/div/span")
+	@FindBy(id="services-services_follow_up")
 	WebElement ServicesandFollowup_Tab;
 	
 	@FindBy(xpath="//*[@id=\"services-services_follow_up\"]")
@@ -769,7 +769,7 @@ public class MarkOffline_CasesPage extends TestBase{
 		Assert.assertEquals(txt_toastermsg_assessment, "You are currently offline. Your changes will be submitted when you are back online.","Toaster message doesnt matched.");
 		
 		//Case Plan Tab
-		Thread.sleep(3000);
+	Thread.sleep(3000);
 		Edit_btn.click();
 		Thread.sleep(3000);
 		CasePlan_Tab.click();
@@ -934,4 +934,6 @@ public class MarkOffline_CasesPage extends TestBase{
 		
 		
 	}
+
+
 }

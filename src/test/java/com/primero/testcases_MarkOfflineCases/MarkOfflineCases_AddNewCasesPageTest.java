@@ -73,6 +73,7 @@ public class MarkOfflineCases_AddNewCasesPageTest extends TestBase {
 	//initialization();
 	//loginPage = new LoginPage();
 	//homePage = loginPage.loginApplication(prop.getProperty("adminuser"), prop.getProperty("password"));
+
 	mo_casepage = homePage.mo_clickOnCasesLink();
 	
 	String texttosearch = fname +" "+  lname;
