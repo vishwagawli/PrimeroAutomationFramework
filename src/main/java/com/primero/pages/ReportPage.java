@@ -16,7 +16,6 @@ public class ReportPage extends TestBase {
 	LocalTime myObj = LocalTime.now();// Create a date object
 	String dynamicdiscription = "TEST" + myObj;
 	String reportName = "";
-	
 
 	String description = "Description" + myObj;
 
@@ -127,23 +126,19 @@ public class ReportPage extends TestBase {
 
 	@FindBy(xpath = "(//*[contains(text(),'OK')])[2]")
 	WebElement reportOKBtn;
-	
-	
-	
-	@FindBy(css= ".tCGOKasHfsL72Ju4lW6J")
+
+	@FindBy(css = ".tCGOKasHfsL72Ju4lW6J")
 	WebElement reportLabel;
-	
+
 	@FindBy(xpath = "//*[contains(text(),'Case2_Report-Sandesh')]")
 	WebElement reportcase2;
-	
-	
+
 	@FindBy(css = "#report-data-button")
 	WebElement reportDownload;
 
+	@FindBy(xpath = "//*[@data-testid='KeyboardArrowRightIcon']")
+	WebElement rightArrow;
 
-	
-	
-	
 	TestUtil tu = new TestUtil();
 
 	public ReportPage() {
@@ -205,78 +200,61 @@ public class ReportPage extends TestBase {
 		deleteBtn.click();
 	}
 
-	public ReportPage clickOnReportLinkNew() throws InterruptedException {
+	public ReportPage createReport() throws InterruptedException {
 		reportlink.click(); // report click
 		Thread.sleep(5000);
 
-		System.out.println("1");
+		System.out.println("Click on Report");
 
 		newlink.click(); // newBTN click
 		Thread.sleep(5000);
-		System.out.println("2");
-		String reportName = "Test" + myObj;
+
+		reportName = "Test" + myObj;
 
 		name1.sendKeys(reportName); // Name click
 		Thread.sleep(5000);
-		System.out.println("3");
 
 		discription.sendKeys(dynamicdiscription);// discription click
 		Thread.sleep(5000);
-		System.out.println("4");
 
 		clickmodue.click(); // click module dropdown
 		Thread.sleep(5000);
-		System.out.println("5");
 		clickmodue2.click(); // module dropdown value click
 		Thread.sleep(5000);
-		System.out.println("6");
 
 		Recorddropdown.click(); // Record dropdown click
 		Thread.sleep(5000);
-		System.out.println("8");
 		Recorddropdownvalue.click(); // record dropdownvalue click
 		Thread.sleep(5000);
-		System.out.println("9");
 
 		Rowddropdown.click();
 		Thread.sleep(5000);// Rowddropdown click
-		System.out.println("10");
 
 		Rowddropdownvalue.click(); // row dropdownvalue click
 		Thread.sleep(5000);
-		System.out.println("11");
 
 		columndropdown.click(); // columndropdown click
 		Thread.sleep(5000);
-		System.out.println("12");
 		columndropdownvalue.click(); // columndropdownvalue click
 		Thread.sleep(5000);
-		System.out.println("13");
 
 		agecheckbox.click(); // agecheckbox click
 		Thread.sleep(5000);
-		System.out.println("14");
 
 		agedropdown.click(); // agedropdown click
 		Thread.sleep(5000);
-		System.out.println("15");
 		agedropdownvalue.click(); // agedropdownvalue click
 		Thread.sleep(5000);
-		System.out.println("16");
 
 		generatecheckbox.click(); // generatecheckbox click
 		Thread.sleep(5000);
-		System.out.println("17");
 
 		submitBTN.click(); // submitBTN.click();
-		System.out.println("18");
 		Thread.sleep(15000);
-		
-		String actualReport =reportLabel.getText();
+
+		String actualReport = reportLabel.getText();
 		System.out.println("Report created success..." + actualReport);
 		Assert.assertEquals(actualReport, reportName);
-		
-		
 
 		return new ReportPage();
 
@@ -284,60 +262,102 @@ public class ReportPage extends TestBase {
 
 	public void deleteReport1() throws InterruptedException {
 		deleteBtn.click();
-		System.out.println("23");
+		System.out.println("Click on Delete button");
 		Thread.sleep(5000);
 
 		reportOKBtn.click();
-		System.out.println("24");
+		System.out.println("Click on OK button");
 		Thread.sleep(5000);
 	}
 
 	public void editReport() throws InterruptedException {
 		String editReportName = "Edit" + myObj;
 		editBtn.click();
-		System.out.println("19");
+		System.out.println("Click on Edit button");
 		Thread.sleep(5000);
 
 		name2.sendKeys(Keys.CONTROL + "a");
 		name2.sendKeys(Keys.DELETE);
 		name2.sendKeys(editReportName);
-		System.out.println("20");
+		System.out.println("Clear the data from Name Text field");
 		Thread.sleep(5000);
 
 		discription2.sendKeys(Keys.CONTROL + "a");
 		discription2.sendKeys(Keys.DELETE);
 		discription2.sendKeys(dynamicdiscription);
 
-		System.out.println("21");
+		System.out.println("Clear the data from Description Text field");
 		Thread.sleep(5000);
 
 		saveBTN2.click();
-		System.out.println("22");
+		System.out.println("Click on Save button");
 		Thread.sleep(5000);
-		
-		String actualReport =reportLabel.getText();
+
+		String actualReport = reportLabel.getText();
 		System.out.println("Report Edited successfully..." + actualReport);
 		Assert.assertEquals(actualReport, editReportName);
-		
 
 	}
+
 	public void downloadReport() throws InterruptedException {
 		reportlink.click();
-		System.out.println("1");
+		System.out.println(" Clicked on Report link");
 		Thread.sleep(5000);
-		
+
 		reportcase2.click();
-		System.out.println("2");
+		System.out.println("Clicked on Report");
 		Thread.sleep(5000);
-		
+
 		reportDownload.click();
-		System.out.println("3");
+		System.out.println("Clicked on Download Report");
 		Thread.sleep(5000);
-		
-		
-		
-		
-		
+
+	}
+
+	public void searchReport() throws InterruptedException {
+
+		reportlink.click();
+		Thread.sleep(5000);
+
+		rightArrow.click();
+		Thread.sleep(5000);
+	}
+
+	public void clickOnRightArrow() throws InterruptedException {
+		reportlink.click();
+		Thread.sleep(15000);
+		int page = 0;
+
+		try {
+			while (rightArrow.isEnabled()) {
+				rightArrow.click();
+				page++;
+				System.out.println("Page..." + page);
+			}
+		} catch (Exception e) {
+			try {
+				verifyReportLastPage();
+			} catch (InterruptedException e1) {
+
+				e1.printStackTrace();
+			}
+		}
+		System.out.println(" End of page");
+
+	}
+
+	public void verifyReportLastPage() throws InterruptedException {
+		String xpath = "//*[contains(text(),'" + reportName + "')]";
+
+		WebElement reportElement = driver.findElement(By.xpath(xpath));
+
+		System.out.println("Dynamic xpath.." + xpath);
+
+		String actLastReport = reportElement.getText();
+		Thread.sleep(15000);
+		System.out.println("Report is verified successfully.....");
+		Assert.assertEquals(actLastReport, reportName);
+
 	}
 
 }
