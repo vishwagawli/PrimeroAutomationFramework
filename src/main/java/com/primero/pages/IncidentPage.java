@@ -1,6 +1,7 @@
 package com.primero.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -181,6 +182,8 @@ public class IncidentPage extends TestBase{
 			cp_incident_perpetrator_nationality.sendKeys(nationality);
 			driver.findElement(By.cssSelector("#cp_incident_perpetrator_nationality-listbox > li:nth-child(1)")).click();
 			age_incident.clear();
+			age_incident.sendKeys(Keys.CONTROL + "a");
+			age_incident.sendKeys(Keys.DELETE);
 			age_incident.sendKeys(age);
 			cp_incident_perpetrator_national_id_no.clear();
 			cp_incident_perpetrator_national_id_no.sendKeys(nationalId);

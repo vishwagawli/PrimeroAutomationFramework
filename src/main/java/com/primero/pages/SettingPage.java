@@ -468,7 +468,9 @@ public class SettingPage extends TestBase{
 		Thread.sleep(1000);
 		Test_subForm.click();
 		desc_agency.clear();
-		desc_agency.sendKeys("Description Informationnn");
+		desc_agency.sendKeys(Keys.CONTROL + "a");
+		desc_agency.sendKeys(Keys.DELETE);
+		desc_agency.sendKeys("Descrsdfgsiption Inforaamationnfdghn");
 		saveBtn.click();
 		
 		String txt_toastermsg_acceptref= toastermsg.getText();
@@ -764,7 +766,7 @@ public class SettingPage extends TestBase{
 		Thread.sleep(1000);
 		newBtn.click();
 		Thread.sleep(1000);
-		name_roles.sendKeys("CPCaseWorker_test12");
+		name_roles.sendKeys("CPCaseWorker_test122");
 		view_caserole.click();
 		create_caserole.click();
 		edit_caserole.click();

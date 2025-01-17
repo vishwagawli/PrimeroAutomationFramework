@@ -43,16 +43,16 @@ public class Report_Add extends TestBase {
 	}
 
 	@Test(priority = 1, dataProvider = "getTestDataFromExcel_SearchCases")
-	public void approval(String text, String comment) throws Exception {
+	public void CreateReport(String text, String comment) throws Exception {
 		System.out.println("Add method");
-		Thread.sleep(5000);
+	
 
-		Thread.sleep(15000);
+		Thread.sleep(2000);
 
 		reportPage.createReport();
 
-		reportPage.clickOnRightArrow();
-		Thread.sleep(25000);
+		//reportPage.clickOnRightArrow();
+		//Thread.sleep(25000);
 
 	}
 

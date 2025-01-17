@@ -34,7 +34,7 @@ public class AddNewTracingReqTest extends TestBase {
 	public void setUp() {
 		initialization();
 		loginPage = new LoginPage();
-		homePage = loginPage.loginApplication(prop.getProperty("username"), prop.getProperty("password"));
+		homePage = loginPage.loginApplication(prop.getProperty("adminuser"), prop.getProperty("password"));
 		tracingrequest = homePage.clickOnTracingReqLink();
 	}
 	@Test(priority=1)

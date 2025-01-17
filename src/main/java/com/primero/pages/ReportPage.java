@@ -202,55 +202,55 @@ public class ReportPage extends TestBase {
 
 	public ReportPage createReport() throws InterruptedException {
 		reportlink.click(); // report click
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 
 		System.out.println("Click on Report");
 
 		newlink.click(); // newBTN click
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 
 		reportName = "Test" + myObj;
 
 		name1.sendKeys(reportName); // Name click
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 
 		discription.sendKeys(dynamicdiscription);// discription click
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 
 		clickmodue.click(); // click module dropdown
-		Thread.sleep(5000);
+		Thread.sleep(1000);
 		clickmodue2.click(); // module dropdown value click
-		Thread.sleep(5000);
+		//Thread.sleep(5000);
 
 		Recorddropdown.click(); // Record dropdown click
-		Thread.sleep(5000);
+		//Thread.sleep(5000);
 		Recorddropdownvalue.click(); // record dropdownvalue click
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 
 		Rowddropdown.click();
-		Thread.sleep(5000);// Rowddropdown click
+		Thread.sleep(2000);// Rowddropdown click
 
 		Rowddropdownvalue.click(); // row dropdownvalue click
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 
 		columndropdown.click(); // columndropdown click
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		columndropdownvalue.click(); // columndropdownvalue click
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 
 		agecheckbox.click(); // agecheckbox click
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 
 		agedropdown.click(); // agedropdown click
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		agedropdownvalue.click(); // agedropdownvalue click
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 
 		generatecheckbox.click(); // generatecheckbox click
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 
 		submitBTN.click(); // submitBTN.click();
-		Thread.sleep(15000);
+		Thread.sleep(3000);
 
 		String actualReport = reportLabel.getText();
 		System.out.println("Report created success..." + actualReport);

@@ -102,7 +102,7 @@ public class MarkOffline_CasesPage extends TestBase{
 	@FindBy(id="buttons.edit")
 	WebElement Edit_btn;
 	
-	@FindBy(xpath="//*[@id=\"cp_case_plan-case_plan\"]/div/span")
+	@FindBy(xpath="//*[@id=\"formsection-formtestv-042db2e-case_plan\"]")
 	WebElement CasePlan_Tab;
 	
 	@FindBy(name="date_case_plan")
