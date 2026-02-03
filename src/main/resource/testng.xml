@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Primero Application Automation Suite">
-	<listeners>
-		<listener class-name="com.primero.ExtentReportListener.ExtentReporterNG"></listener>
+		<listeners>
+		<listener class-name="com.primero.ExtentReportListener.ExtentReporterNG">
+		
+		</listener>
 	</listeners>
-	<test name="Primero Application Test Cases">
-		<classes>
 
+	<test name="Primero Application Test Cases">
+		
+		<classes>
+		
+		
 		<class name="com.primero.testcases_Report.Report_Add"></class>
 		<class name="com.primero.testcases_Report.Report_Download"></class>
 		<class name="com.primero.testcases_Report.Report_EditDelete"></class>
-	
-		</classes>
+		
+	</classes>
 	</test>
 </suite>

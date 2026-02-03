@@ -725,9 +725,9 @@ public class CasesPage extends TestBase{
 		Thread.sleep(8000);
 		newBtn.click();
 		Thread.sleep(1000);
-		createnewcaseBtn1.click();
+	//	createnewcaseBtn1.click();
 		Thread.sleep(3000);
-		createnewcaseBtn2.click();
+		//createnewcaseBtn2.click();
 		Thread.sleep(3000);
 		txt_cpimsid.sendKeys(cpmisId);
 		txt_fname.sendKeys(fname);
@@ -763,11 +763,11 @@ public class CasesPage extends TestBase{
 		Edit_btn.click();
 		Thread.sleep(8000);
 
-		Assesment_Tab.click();
+	//	Assesment_Tab.click();
 		Thread.sleep(3000);
 		Assesment_reqOnDate.click();
 		Thread.sleep(3000);
-		tu.selectDate("18", "Jul", "2025", monthyearvaluestring, NextIconCalendor);
+		tu.selectDate("18", "Jul", "2026", monthyearvaluestring, NextIconCalendor);
 		assDueDateOk_Btn.click();	
 		save_btn.click();
 		tuobj.waitForElementToAppear(toastermsg_case);
@@ -783,7 +783,7 @@ public class CasesPage extends TestBase{
 		CasePlan_Tab.click();
 		Thread.sleep(3000);
 		CasPlanIntiatedDate.click();
-		tu.selectDate("18", "Jul", "2025", monthyearvaluestring, NextIconCalendor);
+		tu.selectDate("18", "Jul", "2026", monthyearvaluestring, NextIconCalendor);
 		assDueDateOk_Btn.click();
 		Thread.sleep(3000);
 		save_btn.click();

@@ -6,13 +6,6 @@
   </listeners>
   <test thread-count="5" name="Primero Application Test Cases(failed)">
     <classes>
-      <class name="com.primero.testcases_Report.Report_Download">
-        <methods>
-          <include name="approval"/>
-          <include name="setUp"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.primero.testcases_Report.Report_Download -->
       <class name="com.primero.testcases_Report.Report_Add">
         <methods>
           <include name="CreateReport" invocation-numbers="0"/>
@@ -21,12 +14,19 @@
       </class> <!-- com.primero.testcases_Report.Report_Add -->
       <class name="com.primero.testcases_Report.Report_EditDelete">
         <methods>
-          <include name="addReportTest"/>
-          <include name="deleteReportTest"/>
+          <include name="addReportTest" invocation-numbers="0"/>
+          <include name="deleteReportTest" invocation-numbers="0"/>
           <include name="setUp"/>
-          <include name="editReportTest"/>
+          <include name="editReportTest" invocation-numbers="0"/>
         </methods>
       </class> <!-- com.primero.testcases_Report.Report_EditDelete -->
+      <class name="com.primero.testcases_Report.Report_Download">
+        <methods>
+          <include name="approval" invocation-numbers="0"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.primero.testcases_Report.Report_Download -->
     </classes>
   </test> <!-- Primero Application Test Cases(failed) -->
 </suite> <!-- Failed suite [Primero Application Automation Suite] -->

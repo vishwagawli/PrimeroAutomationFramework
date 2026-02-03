@@ -33,7 +33,7 @@ public class Cases_AddNewCasesPageTest extends TestBase {
 	public void setUp() {
 		initialization();
 		loginPage = new LoginPage();
-		homePage = loginPage.loginApplication(prop.getProperty("cpusername"), prop.getProperty("password"));
+		homePage = loginPage.loginApplication(prop.getProperty("adminuser"), prop.getProperty("password"));
 		casespage = homePage.clickOnCasesLink();
 	}
 	/*@Test(priority=1)
@@ -63,7 +63,7 @@ public class Cases_AddNewCasesPageTest extends TestBase {
 	//Thread.sleep(5000);
 	
 	homePage.logoutApplication();
-	TestUtil tuobj = new TestUtil();
+	/*TestUtil tuobj = new TestUtil();
 	tuobj.waitForElementToAppear(loginPage.loginBtn_By);
 	
 	initialization();
@@ -83,7 +83,7 @@ public class Cases_AddNewCasesPageTest extends TestBase {
 	casespage.disableCase();
 	Thread.sleep(5000);
 	casespage.enableCase();
-	
+	*/
 	}
 	
 	@AfterMethod

@@ -130,7 +130,7 @@ public class ReportPage extends TestBase {
 	@FindBy(css = ".tCGOKasHfsL72Ju4lW6J")
 	WebElement reportLabel;
 
-	@FindBy(xpath = "//*[contains(text(),'Case2_Report-Sandesh')]")
+	@FindBy(xpath = "//*[contains(text(),'Cases by')]")
 	WebElement reportcase2;
 
 	@FindBy(css = "#report-data-button")

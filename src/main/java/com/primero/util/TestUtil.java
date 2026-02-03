@@ -108,7 +108,7 @@ public class TestUtil extends TestBase {
 		
 		//table[contains(@class,'MuiTable-root')]/tbody/tr[4]/td[3]"
 		String beforxpath="//table[contains(@class,'MuiTable-root')]/tbody/tr[";
-		String afterxpath= "]/td[2]";
+		String afterxpath= "]/td[3]";
 		for(int i=1;i<=25;i++)
 		{
 			String name = driver.findElement(By.xpath(beforxpath+i+afterxpath)).getText();

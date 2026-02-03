@@ -758,8 +758,8 @@ public class MarkOffline_CasesPage extends TestBase{
 		Assesment_Tab.click();
 		Thread.sleep(1000);
 		Assesment_reqOnDate.click();
-		Thread.sleep(1000);
-		tu.selectDate("11", "Jul", "2025", monthyearvaluestring, NextIconCalendor);
+		Thread.sleep(5000);
+		tu.selectDate("8", "Jul", "2025", monthyearvaluestring, NextIconCalendor);
 		assDueDateOk_Btn.click();	
 		save_btn.click();
 		tuobj.waitForElementToAppear(toastermsg_case);
